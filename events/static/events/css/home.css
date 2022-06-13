@@ -1,0 +1,104 @@
+.events {
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 5rem;
+}
+
+.banner {
+    height: 50vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+video {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    filter: brightness(50%)
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner .overlay-text {
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    position: relative;
+    display: grid;
+    grid-template-areas: "spacer"
+                         "banner-title"
+                         "banner-secondary";
+    grid-template-columns: 1fr;
+    grid-template-rows: 35% 20% 1fr;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.spacer {
+    grid-area: spacer;
+}
+
+.banner-title {
+    grid-area: banner-title;
+    font-size: 2rem;
+}
+
+.banner-secondary{
+    grid-area: banner-secondary;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.banner-secondary h3, a{
+    
+    font-size: 1rem;
+}
+
+.banner-secondary h3 {
+    font-weight: 200;
+}
+
+/* Button Styles */
+
+.banner-secondary a {
+    color: var(--primary);
+    width: 10rem;
+    font-weight: 300;
+    text-decoration: none;
+    transition: 0.3s;
+    border: 1px solid var(--primary);
+    padding: 1rem;
+}
+
+.banner-secondary a:visited {
+    color: var(--primary);
+}
+
+.banner-secondary a:hover {
+    color: black;
+    background-color: var(--primary);
+    transition: 0.3s;
+}
+
+.banner-secondary a:active {
+    filter: brightness(50%);
+    transition: 0.2s;
+}

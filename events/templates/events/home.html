@@ -1,0 +1,30 @@
+{% extends "events/base.html" %}
+{% load static %}
+{% load l10n %}
+{% block content %}
+    <section class="events">
+        <h1>Upcoming Tournaments</h1>
+        {% for event in events %}
+            <div class="banner">
+                <div class="video-wrapper">
+                    <video src="{% static 'events/videos/home_page_background_v002.mp4' %}" autoPlay muted loop>
+                        Video could not load
+                    </video>
+                    <div class="overlay-text">
+                        <div class="spacer"></div>
+                        <div class="banner-title">
+                            <!-- <h2>{{ event.date_time|date:"F d Y, h:m A"|localize }}</h2> -->
+                        </div>
+                        <div class="banner-secondary">
+                            <!-- <h3>{{ event.title }}</h3> -->
+                            <!-- <h3>{{ event.location }}</h3> -->
+                            <a class="main-button" href="#" >Go to Page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+        {% endfor %}
+    </section>
+
+{% endblock content %}

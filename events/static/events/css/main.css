@@ -1,0 +1,56 @@
+:root {
+    --base: #171717;
+    --base-secondary: #444444;
+    --primary: #EDEDED;
+    --accent: #DA0037;
+}
+
+body {
+    background-image: linear-gradient(to bottom right, var(--base), var(--base-secondary));
+    color: var(--primary);
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+/* Nav Bar */
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.navbar li {
+    display: inline-block;
+    margin: 0 1.5rem;
+    font-size: 0.8rem;
+}
+
+.navbar span {
+    text-transform: uppercase;
+    font-weight: 200;
+    font-size: 0.8rem;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--primary);
+    transition: 0.3s;
+}
+
+.navbar a:visited {
+    color: var(--primary);
+}
+
+.navbar a:hover {
+    color: var(--accent);
+    transition: 0.3s;
+}
+
+.navbar a:active {
+    filter: brightness(50%);
+    transition: 0.2s;
+}
