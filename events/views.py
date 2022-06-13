@@ -1,10 +1,10 @@
 from django.shortcuts import render
-# from .models import Event
+from .models import Event
 
 
 def home(request):
     context = {
-        # 'events': Event.objects.all()
+        'events': Event.objects.all()
     }
     return render(request, 'events/home.html', context)
 
