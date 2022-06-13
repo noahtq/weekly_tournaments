@@ -13,7 +13,7 @@ body {
 
 /* Nav Bar */
 
-.navbar {
+.navbar-main {
     background-color: rgba(0, 0, 0, 0.3);
     height: 4rem;
     width: 100%;
@@ -23,34 +23,34 @@ body {
     padding: 0 1rem;
 }
 
-.navbar li {
+.navbar-main li {
     display: inline-block;
     margin: 0 1.5rem;
     font-size: 0.8rem;
 }
 
-.navbar span {
+.navbar-main span {
     text-transform: uppercase;
     font-weight: 200;
     font-size: 0.8rem;
 }
 
-.navbar a {
+.navbar-main a {
     text-decoration: none;
     color: var(--primary);
     transition: 0.3s;
 }
 
-.navbar a:visited {
+.navbar-main a:visited {
     color: var(--primary);
 }
 
-.navbar a:hover {
+.navbar-main a:hover {
     color: var(--accent);
     transition: 0.3s;
 }
 
-.navbar a:active {
+.navbar-main a:active {
     filter: brightness(50%);
     transition: 0.2s;
 }
