@@ -1,0 +1,30 @@
+{% extends "events/base.html" %}
+{% block content %}
+    <div>
+        <div class="form-container" id="update-profile-container">
+            <div class="input-form">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>Profile Info</legend>
+                        {{ u_form.as_p }}
+                        {{ p_form.as_p }}
+                        <div class="upload-btn-container">
+                            <label for="id_image" class="signup-btn" id="upload-btn">Choose Image</label>
+                        </div>
+                    </fieldset>
+                    <div class="button-container">
+                        <button class="signup-btn" type="submit">Update</button>
+                    </div>
+                </form>
+                <div class="text-muted">
+                    <small><a href="{% url 'profile' %}">Return to profile without saving</a></small>
+                </div>
+            </div>
+            <div class="profile-sidepanel">
+                <h3>Current Image:</h3>
+                <img src="{{ user.profile.image.url }}" alt="">
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="{% static 'events/css/main.css' %}">
     <link rel="stylesheet" href="{% static 'events/css/home.css' %}">
     <link rel="stylesheet" href="{% static 'events/css/register.css' %}">
+
+    <!-- Icon -->
+    <link rel="icon" href="{% static 'events/icons/company/wt_logo_001.png' %}">
+
     {% if title %}
         <title>Weekly Tournaments - {{ title }}</title>
     {% else %}
@@ -29,10 +33,15 @@
                 <li><a href="{% url 'events-home' %}">Home</a></li>
                 <li><a href="{% url 'events-about' %}">About</a></li>
             </ul>
-            <span>Weekly Tournaments</span>
+            <span><a href="{% url 'events-home' %}">Weekly Tournaments</a></span>
             <ul class="nav-right">
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
