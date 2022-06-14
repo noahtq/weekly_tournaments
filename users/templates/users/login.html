@@ -1,6 +1,7 @@
 {% extends "events/base.html" %}
+{% load static %}
 {% block content %}
-    <div class="form-container">
+    <div class="form-container form-container-login">
         <div class="input-form">
             <form method="POST">
                 {% csrf_token %}
@@ -16,6 +17,8 @@
                 <small>Need An Account? <a href="{% url 'register' %}">Sign Up Now</a></small>
             </div>
         </div>
-        <div class="form-sidepanel"></div>
+        <div class="form-sidepanel">
+            <img src="{% static 'events/images/background/shooting_outside_001.jpg' %}" alt="">
+        </div>
     </div>
 {% endblock content %}

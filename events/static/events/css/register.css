@@ -5,7 +5,22 @@
     grid-template-areas: "input-form form-sidepanel";
     grid-template-columns: 65% 1fr;
     grid-template-rows: 1fr;
+    align-items: center;
     background-color: var(--base-secondary);
+    overflow: hidden;
+}
+
+.form-container-register {
+    height: 65rem;
+}
+
+.form-container-login {
+    height: 40rem;
+}
+
+#update-profile-container {
+    height: 55rem;
+    grid-template-areas: "input-form profile-sidepanel";
 }
 
 .input-form {
@@ -68,6 +83,7 @@
 }
 
 .input-form .signup-btn {
+    cursor: pointer;
     margin-top: 2rem;
     background-color: rgba(0,0,0,0);
     border-width: 0;
@@ -101,8 +117,62 @@
 
 .form-sidepanel {
     grid-area: form-sidepanel;
+    overflow: hidden;
     background-color: rgba(0,0,0,0.5);
     border-radius: 0 15px 15px 0;
-    background-image: url("../images/background/dunking_outside_001.jpg");
-    background-size: cover;
+    max-height: 100%;
+}
+
+.form-sidepanel img {
+    max-width: 150%;
+    max-height: auto;
+    overflow: hidden;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.profile-sidepanel {
+    background-color: rgba(0,0,0,0.25);
+    grid-area: profile-sidepanel;
+    border-radius: 0 15px 15px 0;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-sidepanel h3 {
+    font-size: 1.2rem;
+    font-weight: 200;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+.profile-sidepanel img {
+    margin-top: 2rem;
+    height: 25rem;
+    width: 25rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#id_image {
+    display: none;
+}
+
+.upload-btn-container {
+    padding-top: 1.25rem;
+}
+
+#upload-btn {
+    cursor: pointer;
+    border: 1px solid var(--primary);
+    font-size: 1rem;
+}
+
+#upload-btn:hover {
+    background-color: var(--info);
+    border-color: var(--info);
 }

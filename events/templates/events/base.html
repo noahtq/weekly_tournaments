@@ -33,7 +33,7 @@
                 <li><a href="{% url 'events-home' %}">Home</a></li>
                 <li><a href="{% url 'events-about' %}">About</a></li>
             </ul>
-            <span>Weekly Tournaments</span>
+            <span><a href="{% url 'events-home' %}">Weekly Tournaments</a></span>
             <ul class="nav-right">
                 {% if user.is_authenticated %}
                     <li><a href="{% url 'profile' %}">Profile</a></li>
