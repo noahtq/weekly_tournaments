@@ -56,8 +56,10 @@
 .input-form .errorlist {
     position: relative;
     top:0.5rem;
-    color: var(--error);
-    font-size: 1rem;
+    background-color: var(--error);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
 }
 
 .input-form .button-container {
@@ -95,26 +97,6 @@
     font-size: 0.8rem;
     text-align: center;
     margin-top: 2rem;
-}
-
-.text-muted a {
-    color: lightblue;
-    font-size: 0.8rem;
-    transition: 0.3s;
-}
-
-.text-muted a:visited {
-    color: lightblue;
-}
-
-.text-muted a:hover {
-    color: var(--accent);
-    transition: 0.3s;
-}
-
-.text-muted a:active {
-    filter: brightness(50%);
-    transition: 0.2s;
 }
 
 .form-sidepanel {
