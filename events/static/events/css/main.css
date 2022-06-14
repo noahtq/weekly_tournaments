@@ -3,6 +3,11 @@
     --base-secondary: #444444;
     --primary: #EDEDED;
     --accent: #DA0037;
+    --success: rgb(39, 130, 101);
+    --error: rgb(201, 49, 49);
+    --debug: rgb(206, 103, 0);
+    --info: rgb(0, 170, 170);
+    --warning: rgb(153, 138, 0);
 }
 
 body {
@@ -53,4 +58,33 @@ body {
 .navbar a:active {
     filter: brightness(50%);
     transition: 0.2s;
+}
+
+/* Alerts */
+.alert {
+    border-radius: 10px;
+    margin: 0.25rem 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 1rem 2rem;
+    font-weight: 200;
+}
+
+.alert-success {
+    background-color: var(--success);
+}
+
+.alert-error {
+    background-color: var(--error);
+}
+
+.alert-debug {
+    background-color: var(--debug);
+}
+
+.alert-info {
+    background-color: var(--info);
+}
+
+.alert-warning {
+    background-color: var(--warning);
 }
