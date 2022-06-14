@@ -1,0 +1,22 @@
+{% extends "events/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="form-container">
+        <div class="input-form">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Register</legend>
+                    {{ form.as_p }}
+                </fieldset>
+                <div class="button-container">
+                    <button class="signup-btn" type="submit">Sign Up</button>
+                </div>
+            </form>
+            <div class="text-muted">
+                <small>Already Have An Account? <a href="#">Sign In</a></small>
+            </div>
+        </div>
+        <div class="form-sidepanel"></div>
+    </div>
+{% endblock content %}
