@@ -18,6 +18,11 @@
     height: 40rem;
 }
 
+.form-container-delete {
+    height: 25rem;
+    text-align: center;
+}
+
 #update-profile-container {
     height: 55rem;
     grid-template-areas: "input-form profile-sidepanel";
@@ -48,17 +53,24 @@
     border-width: 0px;
 }
 
-.input-form input {
-    margin-top: 0.5rem;
-    height: 2.5rem;
+.input-form input, textarea {
     background-color: rgba(0,0,0,0.25);
+    margin-top: 0.5rem;
     border-width: 0;
     border-radius: 5px;
     color: var(--primary);
-    font-size: 1rem;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    font-weight: 200;
     padding: 0 1rem;
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+.input-form input {
+    height: 2.5rem;
+}
+
+.input-form textarea {
+    line-height: 2rem;
 }
 
 .input-form .helptext, ul {
@@ -82,7 +94,15 @@
     justify-content: center;
 }
 
-.input-form .signup-btn {
+.staff-btn-container {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.signup-btn {
     cursor: pointer;
     margin-top: 2rem;
     background-color: rgba(0,0,0,0);
@@ -96,15 +116,16 @@
     width: 10rem;
     border-radius: 5px;
     transition: 0.3s;
+    text-decoration: none;
 }
 
-.input-form .signup-btn:hover {
+.signup-btn:hover {
     color: black;
     background-color: var(--primary);
     transition: 0.3s;
 }
 
-.input-form .signup-btn:active {
+.signup-btn:active {
     filter: brightness(50%);
     transition: 0.2s;
 }
@@ -175,4 +196,25 @@
 #upload-btn:hover {
     background-color: var(--info);
     border-color: var(--info);
+}
+
+#danger-btn {
+    border-color: var(--error);
+    color: var(--error);
+}
+
+#danger-btn:hover {
+    background-color: var(--error);
+    color: black;
+}
+
+#info-btn {
+    border-color: var(--info);
+    color: var(--info);
+    text-decoration: none;
+}
+
+#info-btn:hover {
+    background-color: var(--info);
+    color: black;
 }
