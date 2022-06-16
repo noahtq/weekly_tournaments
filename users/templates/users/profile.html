@@ -3,7 +3,7 @@
     <div>
         <img src="{{ user.profile.image.url }}" alt="">
         <div>
-            <h2>{{ user.username }}</h2>
+            <h2 id="test">{{ user.username }}</h2>
             <p>{{ user.email }}</p>
             <a href="{% url 'profile-update' %}">Edit Profile</a>
         </div>
