@@ -15,7 +15,7 @@
                     <div class="banner-secondary">
                         <h3>{{ object.title }}</h3>
                         <h3>{{ object.location }}</h3>
-                        <a class="main-button" href="{% url 'event-register' object.id %}" >Register</a>
+                        <a class="main-button" href="{% url 'event-register' %}?event={{ object.pk }}" >Register</a>
                     </div>
                 </div>
             </div>

@@ -75,7 +75,7 @@ def about(request):
     return render(request, 'events/about.html', {'title': 'About'})
 
 def EventRegisterView(request):
-    event_pk = 3
+    event_pk = request.GET.get('event')
     if request.method == 'POST':
         user = request.user
         event = Event.objects.get(pk=event_pk)
