@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic.edit import FormView
 from .models import Event
 
 
@@ -29,6 +30,14 @@ class EventDetailView(DetailView):
     model = Event
 
 
+class EventRegisterView(LoginRequiredMixin, UpdateView):
+    model = Event
+    template_name = 'events/event_register.html'
+    fields = ['registered_users']
+    # form_class = EventRegisterForm
+    # success_url = '/'
+
+
 class EventCreateView(StaffRequiredMixin, CreateView):
     model = Event
     fields = ['title', 'type', 'description', 'location', 'event_datetime']   
@@ -54,4 +63,3 @@ class EventDeleteView(StaffRequiredMixin, DeleteView):
 
 def about(request):
     return render(request, 'events/about.html', {'title': 'About'})
-
