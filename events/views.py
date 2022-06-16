@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Event
@@ -41,10 +42,10 @@ class EventDetailView(DetailView):
     model = Event
 
 
-class EventRegisterView(NotRegisteredMixin, UpdateView):
-    model = Event
-    template_name = 'events/event_register.html'
-    fields = ['registered_users']
+# class EventRegisterView(NotRegisteredMixin, UpdateView):
+#     model = Event
+#     template_name = 'events/event_register.html'
+#     fields = ['registered_users']
 
 
 class EventCreateView(StaffRequiredMixin, CreateView):
@@ -72,3 +73,17 @@ class EventDeleteView(StaffRequiredMixin, DeleteView):
 
 def about(request):
     return render(request, 'events/about.html', {'title': 'About'})
+
+def EventRegisterView(request):
+    event_pk = 3
+    if request.method == 'POST':
+        user = request.user
+        event = Event.objects.get(pk=event_pk)
+
+        event.registered_users.add(user)
+
+        messages.success(request, f'You have been registered for {event.title}')
+        return redirect('/')
+
+    return render(request, 'events/event_register.html')
+

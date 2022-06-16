@@ -6,8 +6,8 @@
             <form method="POST">
                 {% csrf_token %}
                 <fieldset>
-                    <legend>Register for {{ object.title }}</legend>
-                    {{ form.as_p }}
+                    <legend>Register for tournament</legend>
+                    <!-- {{ form.as_p }} -->
                 </fieldset>
                 <div class="button-container">
                     <button class="btn btn-info" type="submit">Register</button>
