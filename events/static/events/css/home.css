@@ -107,6 +107,10 @@ video {
     font-size: 1.5rem;
 }
 
+.home .home-btn {
+    width: 12rem;
+}
+
 /* Button Styles */
 
 .banner-secondary a {
