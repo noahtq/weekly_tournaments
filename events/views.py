@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Event
@@ -28,6 +30,12 @@ class EventListView(ListView):
 class EventDetailView(DetailView):
     model = Event
 
+    def get_context_data(self, *args, **kwargs):
+        print(self.model.title)
+        context = super(EventDetailView, self).get_context_data(*args, **kwargs)
+        # context['users'] = Event.objects.get(pk=self.model).registered_users.all()
+        return context
+
 
 class EventCreateView(StaffRequiredMixin, CreateView):
     model = Event
@@ -54,4 +62,23 @@ class EventDeleteView(StaffRequiredMixin, DeleteView):
 
 def about(request):
     return render(request, 'events/about.html', {'title': 'About'})
+
+
+@login_required
+def EventRegisterView(request):
+    event_pk = request.GET.get('event')
+    event = Event.objects.get(pk=event_pk)
+    user = request.user
+    if request.method == 'POST':
+
+        event.registered_users.add(user)
+
+        messages.success(request, f'You have been registered for {event.title}')
+        return redirect('/')
+
+    context = {
+        'event': event
+    }
+
+    return render(request, 'events/event_register.html', context)
 

@@ -76,6 +76,41 @@ video {
     font-weight: 200;
 }
 
+/* Home Page Styles */
+
+.home .banner {
+    height: 94vh;
+}
+
+.countdown-text {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.countdown-text .big {
+    font-size: 10rem;
+    font-weight: 600;
+}
+
+.countdown-text .small {
+    position: relative;
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+.home .banner-secondary {
+    display: flex;
+}
+
+.home .banner-secondary h3 {
+    font-size: 1.5rem;
+}
+
+.home .home-btn {
+    width: 12rem;
+}
+
 /* Button Styles */
 
 .banner-secondary a {
