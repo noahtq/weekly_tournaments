@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.views.generic.edit import FormView
 from .models import Event
 
 
@@ -11,6 +10,18 @@ class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
     def test_func(self):
         return self.request.user.is_staff
 
+
+class NotRegisteredMixin(LoginRequiredMixin, UserPassesTestMixin):
+    
+    def test_func(self):
+        users_registered = Event.objects.filter(id=3).first().registered_users.all()
+        not_registered = True
+        for user in users_registered:
+            if user.id == self.request.user.id:
+                not_registered = False
+        return not_registered
+
+    
 
 def home(request):
     context = {
@@ -30,12 +41,10 @@ class EventDetailView(DetailView):
     model = Event
 
 
-class EventRegisterView(LoginRequiredMixin, UpdateView):
+class EventRegisterView(NotRegisteredMixin, UpdateView):
     model = Event
     template_name = 'events/event_register.html'
     fields = ['registered_users']
-    # form_class = EventRegisterForm
-    # success_url = '/'
 
 
 class EventCreateView(StaffRequiredMixin, CreateView):
