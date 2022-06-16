@@ -1,11 +1,29 @@
 {% extends "events/base.html" %}
 {% block content %}
-    <div>
-        <img src="{{ user.profile.image.url }}" alt="">
-        <div>
-            <h2 id="test">{{ user.username }}</h2>
-            <p>{{ user.email }}</p>
-            <a href="{% url 'profile-update' %}">Edit Profile</a>
-        </div>
+    <div class="profile">
+        <section class="profile-header">
+            <div id="profile-header-left">
+                <img class="profile-image" src="{{ user.profile.image.url }}" alt="">
+                <div class="profile-info-text">
+                    <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+                    <h3>(Placeholder Team)</h3>
+                </div>
+            </div>
+            <div id="profile-header-right">
+                <a class="btn btn-info" href="{% url 'profile-update' %}">Edit Profile</a>
+            </div>
+        </section>
+        <section class="profile-events">
+            <h2 class="profile-section-title">Tournaments</h2>
+            <div class="upcoming-events"> 
+                <h3>Upcoming Tournaments</h3>
+                <ul>
+                    <li>Tournament Placeholder</li>
+                </ul>
+            </div>
+        </section>
+        <section class="profile-highlights">
+            <h2 class="profile-section-title">Highlights</h2>
+        </section>
     </div>
 {% endblock content %}
