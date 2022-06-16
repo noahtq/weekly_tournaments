@@ -1,7 +1,7 @@
 {% extends "events/base.html" %}
 {% load static %}
 {% block content %}
-    <section class="events">
+    <section class="home">
         <div class="banner">
             <div class="video-wrapper">
                 <video src="{% static 'events/videos/home_page_background_v002.mp4' %}" autoPlay muted loop>
@@ -10,7 +10,7 @@
                 <div class="overlay-text">
                     <div class="spacer"></div>
                     <div class="banner-title">
-                        <h2>{{ event.event_datetime|date:"F j Y, g:iA" }}</h2>
+                        <h2 class="countdown-text">Loading...</h2>
                     </div>
                     <div class="banner-secondary">
                         <h3>{{ event.title }}</h3>
@@ -21,5 +21,6 @@
             </div>
         </div>
     </section>
-
+    <!-- Countdown Script -->
+    <script src="{% static 'events/javascript/countdown.js' %}" date="{{ event.event_datetime.isoformat }}" defer></script>
 {% endblock content %}
