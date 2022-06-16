@@ -18,12 +18,17 @@ body {
 
 main {
     min-height: 100vh;
+    position: relative;
+    top: 4rem;
 }
 
 /* Nav Bar */
 
 .navbar {
-    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
     height: 4rem;
     width: 100%;
     display: flex;
