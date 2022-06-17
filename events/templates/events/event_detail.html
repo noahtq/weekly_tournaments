@@ -15,7 +15,11 @@
                     <div class="banner-secondary">
                         <h3>{{ object.title }}</h3>
                         <h3>{{ object.location }}</h3>
-                        <a class="btn" href="{% url 'event-register' %}?event={{ object.pk }}" >Register</a>
+                        {% if registered == False %}
+                            <a class="btn" href="{% url 'event-register' %}?event={{ object.pk }}" >Register</a>
+                        {% else %}
+                            <span class="btn-deactivated">You Are Registered</span>
+                        {% endif %}
                     </div>
                 </div>
             </div>

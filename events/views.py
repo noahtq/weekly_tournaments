@@ -6,6 +6,16 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Event
 
 
+#Check if user is already registered for event, return boolean value
+def checkRegistration(user, event):
+    user_id = user.id
+    registered_users = event.registered_users.all()
+
+    for r_user in registered_users:
+        if r_user.id == user_id:
+            return True
+    return False
+
 #Create new Mixin that checks if a user is staff
 class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
 
@@ -31,9 +41,13 @@ class EventDetailView(DetailView):
     model = Event
 
     def get_context_data(self, *args, **kwargs):
-        print(self.model.title)
+        event_pk = self.request.GET.get('event')
+        event = Event.objects.get(pk=event_pk)
+        user = self.request.user
+        registered = checkRegistration(user, event)
+        
         context = super(EventDetailView, self).get_context_data(*args, **kwargs)
-        # context['users'] = Event.objects.get(pk=self.model).registered_users.all()
+        context['registered'] = registered
         return context
 
 
@@ -63,15 +77,6 @@ class EventDeleteView(StaffRequiredMixin, DeleteView):
 def about(request):
     return render(request, 'events/about.html', {'title': 'About'})
 
-
-def checkRegistration(user, event):
-    user_id = user.id
-    registered_users = event.registered_users.all()
-
-    for r_user in registered_users:
-        if r_user.id == user_id:
-            return True
-    return False
 
 @login_required
 def EventRegisterView(request):

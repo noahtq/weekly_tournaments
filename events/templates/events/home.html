@@ -15,7 +15,7 @@
                     <div class="banner-secondary">
                         <h3>{{ event.title }}</h3>
                         <h3>{{ event.location }}</h3>
-                        <a class="btn home-btn" href="{% url 'event-detail' event.id %}" >Go to Page</a>
+                        <a class="btn home-btn" href="{% url 'event-detail' event.id %}?event={{ event.id }}" >Go to Page</a>
                     </div>
                 </div>
             </div>

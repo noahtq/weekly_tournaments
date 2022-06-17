@@ -8,6 +8,7 @@
     --debug: rgb(206, 103, 0);
     --info: rgb(0, 170, 170);
     --warning: rgb(153, 138, 0);
+    --deactivated: rgb(136, 136, 136);
 }
 
 body {
@@ -158,6 +159,7 @@ a:active {
     transition: 0.2s;
 }
 
+/* Info Button */
 .btn-info {
     color: var(--info);
     border-color: var(--info);
@@ -165,4 +167,18 @@ a:active {
 
 .btn-info:hover {
     background-color: var(--info);
+}
+
+/* Deactivated Button */
+.btn-deactivated {
+    color: var(--deactivated);
+    border-color: var(--deactivated);
+    margin-top: 2rem;
+    font-size: 1.25rem;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    border: 1px solid var(--deactivated);
+    border-radius: 5px;
+    padding: 0.75rem;
+    width: 10rem;
 }
