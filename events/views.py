@@ -64,11 +64,23 @@ def about(request):
     return render(request, 'events/about.html', {'title': 'About'})
 
 
+def checkRegistration(user, event):
+    user_id = user.id
+    registered_users = event.registered_users.all()
+
+    for r_user in registered_users:
+        if r_user.id == user_id:
+            return True
+    return False
+
 @login_required
 def EventRegisterView(request):
     event_pk = request.GET.get('event')
     event = Event.objects.get(pk=event_pk)
     user = request.user
+
+    isRegistered = checkRegistration(user, event)
+    
     if request.method == 'POST':
 
         event.registered_users.add(user)
@@ -77,7 +89,8 @@ def EventRegisterView(request):
         return redirect('/')
 
     context = {
-        'event': event
+        'event': event,
+        'registered': isRegistered
     }
 
     return render(request, 'events/event_register.html', context)

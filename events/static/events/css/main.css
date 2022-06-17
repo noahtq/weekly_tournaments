@@ -70,6 +70,10 @@ main {
     transition: 0.2s;
 }
 
+.center {
+    text-align: center;
+}
+
 /* Alerts */
 .alert {
     border-radius: 10px;

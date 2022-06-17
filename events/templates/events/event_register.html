@@ -3,15 +3,20 @@
 {% block content %}
     <div class="form-container form-container-register">
         <div class="input-form">
-            <form method="POST">
-                {% csrf_token %}
-                <fieldset>
-                    <legend>Register for {{ event.title }}</legend>
-                </fieldset>
-                <div class="button-container">
-                    <button class="btn btn-info" type="submit">Register</button>
-                </div>
-            </form>
+            {% if registered == False %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>Register for {{ event.title }}</legend>
+                    </fieldset>
+                    <div class="button-container">
+                        <button class="btn btn-info" type="submit">Register</button>
+                    </div>
+                </form>
+            {% else %}
+                <h3>You are already registered for {{event.title}}.</h3>
+                <a class="center" href="{% url 'events-home' %}">Go to Home</a>
+            {% endif %}
         </div>
         <div class="form-sidepanel">
             <img src="{% static 'events/images/background/dunking_outside_001.jpg' %}" alt="">
