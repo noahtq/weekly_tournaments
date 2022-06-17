@@ -68,7 +68,6 @@ video {
 }
 
 .banner-secondary h3, a{
-    
     font-size: 1rem;
 }
 
@@ -107,7 +106,7 @@ video {
     font-size: 1.5rem;
 }
 
-.home .home-btn {
+.banner-secondary .home-btn {
     width: 12rem;
 }
 
