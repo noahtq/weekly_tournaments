@@ -2,7 +2,6 @@ const date = document.currentScript.getAttribute('date');
 const countDownElement = document.getElementsByClassName('countdown-text')[0];
 
 function countdown(targetDate) {
-    console.log(targetDate);
     const countDownDate = new Date(targetDate).getTime();
 
     const intervalId = setInterval(() => {

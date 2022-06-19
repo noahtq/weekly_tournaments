@@ -1,0 +1,14 @@
+.event-register-info {
+    margin-bottom: 4rem;
+}
+
+.status-icon {
+    display: flex;
+    justify-content: center;
+}
+
+.status-icon img {
+    opacity: 0;
+    filter: invert();
+    transition: 0.5s;
+}

@@ -171,6 +171,7 @@ a:active {
 
 /* Deactivated Button */
 .btn-deactivated {
+    text-align: center;
     color: var(--deactivated);
     border-color: var(--deactivated);
     margin-top: 2rem;
@@ -181,4 +182,10 @@ a:active {
     border-radius: 5px;
     padding: 0.75rem;
     width: 10rem;
+}
+
+/* Small text */
+
+.small {
+    font-size: 0.85rem;
 }
