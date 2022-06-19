@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -95,7 +96,8 @@ def EventRegisterView(request):
 
     context = {
         'event': event,
-        'registered': isRegistered
+        'registered': isRegistered,
+        'client_id': settings.PAYPAL_CLIENT_ID
     }
 
     return render(request, 'events/event_register.html', context)

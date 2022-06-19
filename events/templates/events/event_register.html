@@ -1,9 +1,12 @@
 {% extends "events/base.html" %}
 {% load static %}
 {% block content %}
-    <div class="form-container form-container-register">
+    <div class="form-container form-container-event-register">
         <div class="input-form">
-            <legend>Register for {{ event.title }}</h2>
+            <div class="event-register-info">
+                <legend>Register for {{ event.title }}</legend>
+                <p class="small center">To register for tournament, make the payment through paypal, navigate back to this page, and click the register button.</p>
+            </div>
             {% if registered == False %}
                 <div id="paypal-button-container"></div>
 
@@ -13,7 +16,8 @@
                 <form method="POST">
                     {% csrf_token %}
                     <div class="button-container">
-                        <button class="btn btn-info" type="submit">Register</button>
+                        <span class="btn-deactivated">Register</span>
+                        <button class="btn btn-info" type="submit" style="display: none">Register</button>
                     </div>
                 </form>
             {% else %}
@@ -27,11 +31,13 @@
         </div>
     </div>
 
-    <script src="https://www.paypal.com/sdk/js?client-id=AYUc3atgIYdclpDkiFZun38_nPUgYqDCbFcMJTZasVgQ1nQpRbBKAchtuKLTm748o0RscKlG3dpU6ga5&currency=USD&disable-funding=credit"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id={{ client_id }}&currency=USD&disable-funding=credit"></script>
 
     <script>
         
         const statusIcon = document.getElementById('checkmark');
+        const payButton = document.getElementsByClassName('btn-info')[0];
+        const deactivatedButton = document.getElementsByClassName('btn-deactivated')[0];
 
         // Render the PayPal button into #paypal-button-container
         paypal.Buttons({
@@ -48,7 +54,7 @@
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: '25.00'
+                            value: '25.00' //update this to be taken from event object once that has been updated
                         }
                     }]
                 });
@@ -59,6 +65,8 @@
                 return actions.order.capture().then(function(details)
                     {
                         statusIcon.style.opacity = '1';
+                        deactivatedButton.style.display = 'none';
+                        payButton.style.display = 'block';
                     });
             }
 

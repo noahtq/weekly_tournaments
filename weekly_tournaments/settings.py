@@ -137,3 +137,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('WT_EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('WT_EMAIL_PASS')
+
+#Make sure to update this for production
+PAYPAL_CLIENT_ID = 'AYUc3atgIYdclpDkiFZun38_nPUgYqDCbFcMJTZasVgQ1nQpRbBKAchtuKLTm748o0RscKlG3dpU6ga5'
