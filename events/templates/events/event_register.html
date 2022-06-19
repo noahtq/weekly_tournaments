@@ -3,15 +3,15 @@
 {% block content %}
     <div class="form-container form-container-register">
         <div class="input-form">
+            <legend>Register for {{ event.title }}</h2>
             {% if registered == False %}
                 <div id="paypal-button-container"></div>
 
-                </form>
+                <div class="status-icon">
+                    <img id="checkmark" src="{% static 'events/icons/status/checkmark_001.png' %}" alt="">
+                </div>
                 <form method="POST">
                     {% csrf_token %}
-                    <fieldset>
-                        <legend>Register for {{ event.title }}</legend>
-                    </fieldset>
                     <div class="button-container">
                         <button class="btn btn-info" type="submit">Register</button>
                     </div>
@@ -20,25 +20,30 @@
                 <h3>You are already registered for {{event.title}}.</h3>
                 <a class="center" href="{% url 'events-home' %}">Go to Home</a>
             {% endif %}
+            <h2>{{ transaction_id }}</h2>
         </div>
         <div class="form-sidepanel">
             <img src="{% static 'events/images/background/dunking_outside_001.jpg' %}" alt="">
         </div>
     </div>
 
-    <!-- Paypal Button Scripts -->
-    <script src="https://www.paypal.com/sdk/js?client-id=AazAUJurVtkqMR7Gx1ly0bClQY_E-w4ihbYhBUF2pud-EC5Cfi3BzG8Kt65xo-aoxYfduSahaU_JFTQh&currency=USD&disable-funding=credit"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AYUc3atgIYdclpDkiFZun38_nPUgYqDCbFcMJTZasVgQ1nQpRbBKAchtuKLTm748o0RscKlG3dpU6ga5&currency=USD&disable-funding=credit"></script>
+
     <script>
+        
+        const statusIcon = document.getElementById('checkmark');
+
         // Render the PayPal button into #paypal-button-container
         paypal.Buttons({
 
             style: {
-                color: 'blue',
-                shape: 'rect',
-                size: 'responsive'
+                color:  'blue',
+                shape:  'rect',
+                label:  'pay',
+                height: 40
             },
 
-            //setup the transaction
+            //Create transaction
             createOrder: function(data, actions) {
                 return actions.order.create({
                     purchase_units: [{
@@ -49,14 +54,15 @@
                 });
             },
 
-            //Finalize the transaction
+            //Finalize transaction
             onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    //Show a success message
-                    alert(`Transaction completed by ${details.payer.name.given_name}.`)
-                });
+                return actions.order.capture().then(function(details)
+                    {
+                        statusIcon.style.opacity = '1';
+                    });
             }
 
         }).render('#paypal-button-container');
     </script>
+
 {% endblock content %}
