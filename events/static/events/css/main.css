@@ -32,10 +32,22 @@ main {
     background-color: rgba(0, 0, 0, 0.5);
     height: 4rem;
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
     justify-content: space-between;
+    justify-items: center;
     align-items: center;
     padding: 0 1rem;
+}
+
+.navbar .nav-left, .nav-right {
+    width: 100%;
+}
+
+.navbar .nav-right {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .navbar li {
