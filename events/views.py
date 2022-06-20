@@ -42,7 +42,8 @@ class EventDetailView(DetailView):
     model = Event
 
     def get_context_data(self, *args, **kwargs):
-        event_pk = self.request.GET.get('event')
+        path = self.request.path
+        event_pk = int(path.split('event/')[1].split('/')[0])
         event = Event.objects.get(pk=event_pk)
         user = self.request.user
         registered = checkRegistration(user, event)
@@ -54,7 +55,7 @@ class EventDetailView(DetailView):
 
 class EventCreateView(StaffRequiredMixin, CreateView):
     model = Event
-    fields = ['title', 'type', 'description', 'location', 'event_datetime']   
+    fields = ['title', 'type', 'description', 'location', 'event_datetime', 'price', 'max_users']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -63,7 +64,7 @@ class EventCreateView(StaffRequiredMixin, CreateView):
 
 class EventUpdateView(StaffRequiredMixin, UpdateView):
     model = Event
-    fields = ['title', 'type', 'description', 'location', 'event_datetime']   
+    fields = ['title', 'type', 'description', 'location', 'event_datetime', 'price', 'max_users']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
