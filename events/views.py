@@ -17,6 +17,14 @@ def checkRegistration(user, event):
             return True
     return False
 
+#Check if there is still room in the tournament
+def checkEventFilled(event):
+    spots = event.max_users
+    taken = event.registered_users.all().count()
+    if taken >= spots:
+        return True
+    return False
+
 #Create new Mixin that checks if a user is staff
 class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
 
@@ -47,9 +55,11 @@ class EventDetailView(DetailView):
         event = Event.objects.get(pk=event_pk)
         user = self.request.user
         registered = checkRegistration(user, event)
+        is_filled = checkEventFilled(event)
         
         context = super(EventDetailView, self).get_context_data(*args, **kwargs)
         context['registered'] = registered
+        context['is_filled'] = is_filled
         return context
 
 
@@ -87,8 +97,9 @@ def EventRegisterView(request):
     user = request.user
 
     isRegistered = checkRegistration(user, event)
+    isFilled = checkEventFilled(event)
     
-    if request.method == 'POST':
+    if request.method == 'POST' and isFilled == False and isRegistered == False:
 
         event.registered_users.add(user)
 
@@ -98,7 +109,8 @@ def EventRegisterView(request):
     context = {
         'event': event,
         'registered': isRegistered,
-        'client_id': settings.PAYPAL_CLIENT_ID
+        'client_id': settings.PAYPAL_CLIENT_ID,
+        'is_filled': isFilled
     }
 
     return render(request, 'events/event_register.html', context)

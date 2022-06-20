@@ -7,24 +7,28 @@
                 <legend>Register for {{ event.title }}</legend>
                 <p class="small center">To register for tournament, make the payment through paypal, navigate back to this page, and click the register button.</p>
             </div>
-            {% if registered == False %}
-                <div id="paypal-button-container"></div>
+            {% if is_filled == False %}
+                {% if registered == False %}
+                    <div id="paypal-button-container"></div>
 
-                <div class="status-icon">
-                    <img id="checkmark" src="{% static 'events/icons/status/checkmark_001.png' %}" alt="">
-                </div>
-                <form method="POST">
-                    {% csrf_token %}
-                    <div class="button-container">
-                        <span class="btn-deactivated">Register</span>
-                        <button class="btn btn-info" type="submit" style="display: none">Register</button>
+                    <div class="status-icon">
+                        <img id="checkmark" src="{% static 'events/icons/status/checkmark_001.png' %}" alt="">
                     </div>
-                </form>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="button-container">
+                            <span class="btn-deactivated">Register</span>
+                            <button class="btn btn-info" type="submit" style="display: none">Register</button>
+                        </div>
+                    </form>
+                {% else %}
+                    <h3>You are already registered for {{event.title}}.</h3>
+                    <a class="center" href="{% url 'events-home' %}">Go to Home</a>
+                {% endif %}
             {% else %}
-                <h3>You are already registered for {{event.title}}.</h3>
+                <h3>This tournament is full.</h3>
                 <a class="center" href="{% url 'events-home' %}">Go to Home</a>
             {% endif %}
-            <h2>{{ transaction_id }}</h2>
         </div>
         <div class="form-sidepanel">
             <img src="{% static 'events/images/background/dunking_outside_001.jpg' %}" alt="">
@@ -33,8 +37,10 @@
 
     <script src="https://www.paypal.com/sdk/js?client-id={{ client_id }}&currency=USD&disable-funding=credit"></script>
 
-    <script>
+    <script event_price="{{ event.price }}">
         
+        const eventPrice = document.currentScript.getAttribute('event_price');
+
         const statusIcon = document.getElementById('checkmark');
         const payButton = document.getElementsByClassName('btn-info')[0];
         const deactivatedButton = document.getElementsByClassName('btn-deactivated')[0];
@@ -54,7 +60,7 @@
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: '25.00' //update this to be taken from event object once that has been updated
+                            value: eventPrice.toString()
                         }
                     }]
                 });

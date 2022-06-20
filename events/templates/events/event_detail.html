@@ -15,11 +15,16 @@
                     <div class="banner-secondary">
                         <h3>{{ object.title }}</h3>
                         <h3>{{ object.location }}</h3>
-                        {% if registered == False %}
-                            <a class="btn" href="{% url 'event-register' %}" >Register</a>
+                        {% if is_filled == False %}
+                            {% if registered == False %}
+                                <a class="btn" href="{% url 'event-register' %}?event={{ event.pk }}" >Register</a>
+                            {% else %}
+                                <span class="btn-deactivated">You Are Registered</span>
+                            {% endif %}
                         {% else %}
-                            <span class="btn-deactivated">You Are Registered</span>
+                            <span class="btn-deactivated">Tournament Full</span>
                         {% endif %}
+                        <h3>{{ object.registered_users.count }} / {{ object.max_users }} Spots Filled</h3>
                     </div>
                 </div>
             </div>
