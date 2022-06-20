@@ -16,7 +16,7 @@
                         <h3>{{ object.title }}</h3>
                         <h3>{{ object.location }}</h3>
                         {% if registered == False %}
-                            <a class="btn" href="{% url 'event-register' %}?event={{ object.pk }}" >Register</a>
+                            <a class="btn" href="{% url 'event-register' %}" >Register</a>
                         {% else %}
                             <span class="btn-deactivated">You Are Registered</span>
                         {% endif %}
