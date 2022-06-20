@@ -136,3 +136,13 @@ video {
     filter: brightness(50%);
     transition: 0.2s;
 }
+
+/* Text Section */
+
+#will-img {
+    width: 12rem;
+}
+
+#about-wt {
+    margin-top: 2rem;
+}

@@ -21,6 +21,7 @@ main {
     min-height: 100vh;
     position: relative;
     top: 4rem;
+    margin-bottom: 4rem;
 }
 
 /* Nav Bar */
@@ -32,10 +33,22 @@ main {
     background-color: rgba(0, 0, 0, 0.5);
     height: 4rem;
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
     justify-content: space-between;
+    justify-items: center;
     align-items: center;
     padding: 0 1rem;
+}
+
+.navbar .nav-left, .nav-right {
+    width: 100%;
+}
+
+.navbar .nav-right {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .navbar li {
@@ -188,4 +201,93 @@ a:active {
 
 .small {
     font-size: 0.85rem;
+}
+
+/* Text Sections */
+
+.informational {
+    margin: 0 10%;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+}
+
+.informational .section-header {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 25rem;
+}
+
+.informational .section-header img {
+    width: 10rem;
+}
+
+.informational .section-header span {
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+.informational .section-header h1 {
+    font-size: 5rem;
+    font-weight: 200;
+}
+
+.informational .section-main-text {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem;
+}
+
+.informational .section-main-text .tag {
+    display: inline-block;
+    font-weight: 200;
+    text-align: center;
+    line-height: 1.5rem;
+    height: fit-content;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid var(--accent);
+}
+
+.informational .section-main-text p {
+    font-weight: 400;
+    line-height: 2rem;
+}
+
+/* Images */
+
+.portrait-img {
+    border-radius: 50%
+}
+
+/* Footer */
+footer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 4rem;
+    height: 18rem;
+    background-color: var(--base);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+footer h1 {
+    text-transform: uppercase;
+    font-weight: 200;
+    margin-bottom: 0.5rem;
+}
+
+footer .tag {
+    margin-right: 0.5rem;
+    font-weight: 200;
+    text-align: center;
+    line-height: 1.5rem;
+    height: fit-content;
+    padding: 0.25rem 0;
 }
