@@ -1,8 +1,8 @@
 {% extends "events/base.html" %}
 {% load static %}
 {% block content %}
-    <section class="home">
-        <div class="banner">
+    <div class="home">
+        <section class="banner">
             <div class="video-wrapper">
                 <video src="{% static 'events/videos/home_page_background_v002.mp4' %}" autoPlay muted loop>
                     Video could not load
@@ -15,12 +15,44 @@
                     <div class="banner-secondary">
                         <h3>{{ event.title }}</h3>
                         <h3>{{ event.location }}</h3>
-                        <a class="btn home-btn" href="{% url 'event-detail' event.id %}" >Go to Page</a>
+                        <a class="btn home-btn" href="{% url 'event-detail' event.id %}" >Check It Out</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <section class="informational">
+            <div class="section-header">
+                <span>Welcome to</span>
+                <h1>Weekly Tournaments</h1>
+                <img src="{% static 'events/icons/company/wt_logo_001.png' %}" alt="">
+            </div>
+            <div class="section-main-text">
+                <div class="tag">
+                    <span>Mission Statement</span>
+                </div>
+                <p>
+                    Weekly Tournaments goal is to provide low commitment, fun tournaments with stat tracking and highlights
+                    available for each and every player.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Gravida arcu ac tortor dignissim convallis aenean et tortor. Ut aliquam purus sit amet luctus venenatis. Ullamcorper sit amet risus nullam. Libero nunc consequat interdum varius sit amet mattis. Est ullamcorper eget nulla facilisi etiam. Facilisis mauris sit amet massa vitae tortor condimentum lacinia. Aliquet nibh praesent tristique magna sit. Cras fermentum odio eu feugiat pretium nibh. Pellentesque diam volutpat commodo sed egestas egestas. Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac. Imperdiet proin fermentum leo vel orci porta non. Enim diam vulputate ut pharetra sit amet aliquam id. Hac habitasse platea dictumst quisque sagittis purus sit. Sem fringilla ut morbi tincidunt augue interdum velit euismod in. Turpis massa tincidunt dui ut. Volutpat ac tincidunt vitae semper quis lectus. Urna id volutpat lacus laoreet non. Condimentum mattis pellentesque id nibh. Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque.
+                </p>
+            </div>
+        </section>
+        <section class="informational" id="about-wt">
+            <div class="section-header">
+                <span>Meet the owner</span>
+                <h1>William Turnquist</h1>
+                <img class="portrait-img" id="will-img" src="{% static 'events/images/portrait/will_portrait_001.jpeg' %}" alt="">
+            </div>
+            <div class="section-main-text" id="will">
+                <div class="tag">
+                    <span>Synopsis</span>
+                </div>
+                <p>
+                    Synopsis of Will goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lobortis feugiat vivamus at augue eget arcu dictum. Sit amet tellus cras adipiscing enim eu. Dictum non consectetur a erat. Lectus nulla at volutpat diam ut. Nisi lacus sed viverra tellus in hac habitasse. In aliquam sem fringilla ut morbi tincidunt augue interdum. Posuere sollicitudin aliquam ultrices sagittis orci a scelerisque purus. Lacus viverra vitae congue eu. Faucibus interdum posuere lorem ipsum. Sed risus pretium quam vulputate dignissim. At augue eget arcu dictum varius. Adipiscing bibendum est ultricies integer. Tincidunt ornare massa eget egestas purus viverra accumsan in nisl. Ipsum nunc aliquet bibendum enim. Dolor morbi non arcu risus quis varius. Vestibulum lectus mauris ultrices eros in cursus turpis massa.
+                </p>
+            </div>
+        </section>
+    </div>
     <!-- Countdown Script -->
     <script src="{% static 'events/javascript/countdown.js' %}" date="{{ event.event_datetime.isoformat }}" defer></script>
 {% endblock content %}
