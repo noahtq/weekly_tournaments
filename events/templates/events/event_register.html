@@ -7,21 +7,26 @@
                 <legend>Register for {{ event.title }}</legend>
                 <p class="small center">To register for tournament, make the payment through paypal, navigate back to this page, and click the register button.</p>
             </div>
-            {% if registered == False %}
-                <div id="paypal-button-container"></div>
+            {% if is_filled == False %}
+                {% if registered == False %}
+                    <div id="paypal-button-container"></div>
 
-                <div class="status-icon">
-                    <img id="checkmark" src="{% static 'events/icons/status/checkmark_001.png' %}" alt="">
-                </div>
-                <form method="POST">
-                    {% csrf_token %}
-                    <div class="button-container">
-                        <span class="btn-deactivated">Register</span>
-                        <button class="btn btn-info" type="submit" style="display: none">Register</button>
+                    <div class="status-icon">
+                        <img id="checkmark" src="{% static 'events/icons/status/checkmark_001.png' %}" alt="">
                     </div>
-                </form>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="button-container">
+                            <span class="btn-deactivated">Register</span>
+                            <button class="btn btn-info" type="submit" style="display: none">Register</button>
+                        </div>
+                    </form>
+                {% else %}
+                    <h3>You are already registered for {{event.title}}.</h3>
+                    <a class="center" href="{% url 'events-home' %}">Go to Home</a>
+                {% endif %}
             {% else %}
-                <h3>You are already registered for {{event.title}}.</h3>
+                <h3>This tournament is full.</h3>
                 <a class="center" href="{% url 'events-home' %}">Go to Home</a>
             {% endif %}
         </div>
@@ -35,7 +40,6 @@
     <script event_price="{{ event.price }}">
         
         const eventPrice = document.currentScript.getAttribute('event_price');
-        console.log(eventPrice);
 
         const statusIcon = document.getElementById('checkmark');
         const payButton = document.getElementsByClassName('btn-info')[0];
@@ -56,7 +60,7 @@
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: '25.00'
+                            value: eventPrice.toString()
                         }
                     }]
                 });
