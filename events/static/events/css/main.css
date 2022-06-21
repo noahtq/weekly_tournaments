@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Semplitica Ombra';
+    src: url('../fonts/Semplicita/Semplicita_Ombra.otf');
+}
+
 :root {
     --base: #171717;
     --base-secondary: #444444;

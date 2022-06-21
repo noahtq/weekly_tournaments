@@ -99,11 +99,21 @@
 }
 
 .staff-btn-container {
+    background-color: black;
+    padding: 4rem;
     display: flex;
+    flex-direction: column;
     text-align: center;
+    justify-content: center;
+    align-items: space-between;
     width: 100%;
-    justify-content: space-around;
-    align-items: center;
+}
+
+.staff-btn-container div {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .signup-btn {

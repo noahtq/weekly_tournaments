@@ -71,12 +71,44 @@
                     </div>
                 </div>
             </section>
+            <section class="informational">
+                <div class="section-header">
+                    <span>Tournament</span>
+                    <h1>Pricing</h1>
+                    <div id="price-display-container">
+                        <div id="price-display-dummy"></div>
+                        <span id="price-display">${{ object.price }}</span>
+                    </div>
+                </div>
+                <div class="section-main-text">
+                    <div class="tag">
+                        <span>What's<br>Included</span>
+                    </div>
+                    <div class="list-container">
+                        <ul class="red-list">
+                            <li>At least 2 5 vs. 5 games each lasting 30-minutes</li>
+                            <li>Up to 4-games if you make it to the championship</li>
+                            <li>Games are held in an indoor venue on a full-court basketball court</li>
+                            <li>Trained referees are provided for each game</li>
+                        </ul>
+                        <ul class="red-list">
+                            <li>Pennies are provided</li>
+                            <li>Gatorade and water are provided</li>
+                            <li>Scoreboard and scoreboard operator for each game</li>
+                            <li>Your stats are recorded and your highlights are uploaded to YouTube</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
         {% endif %}
         {% if request.user.is_staff %}
-        <h2 style="text-align:center">Staff Buttons</h2>
+        
         <div class="staff-btn-container">
-            <a class="signup-btn" id="info-btn" href="{% url 'event-update' object.id %}">Update</a>
-            <a class="signup-btn" id="danger-btn" href="{% url 'event-delete' object.id %}">Delete</a>
+            <h2 style="text-align:center">Staff Buttons</h2>
+            <div>
+                <a class="signup-btn" id="info-btn" href="{% url 'event-update' object.id %}">Update</a>
+                <a class="signup-btn" id="danger-btn" href="{% url 'event-delete' object.id %}">Delete</a>
+            </div>
         </div>
         {% endif %}
     </div>
