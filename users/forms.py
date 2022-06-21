@@ -24,6 +24,7 @@ class UserUpdateForm(forms.ModelForm):
         model = User
         fields = ['username', 'email', 'first_name', 'last_name']
 
+
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
@@ -31,9 +32,13 @@ class ProfileUpdateForm(forms.ModelForm):
 
 
 class UpdateTeammatesForm(forms.ModelForm):
+
+    
+
     favorite_teammates = forms.ModelMultipleChoiceField(
         queryset=User.objects.all(),
-        widget=forms.CheckboxSelectMultiple
+        widget=forms.CheckboxSelectMultiple,
+        required=False
     )
 
     class Meta:

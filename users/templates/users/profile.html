@@ -11,6 +11,7 @@
             </div>
             <div id="profile-header-right">
                 <a class="btn btn-info" href="{% url 'profile-update' %}">Edit Profile</a>
+                <a class="btn btn-info" href="{% url 'profile-teammates' %}">Edit Teammates</a>
             </div>
         </section>
         <section class="profile-events">
@@ -18,7 +19,7 @@
             <div class="upcoming-events"> 
                 <ul>
                     {% for event in events %}
-                        <li>{{ event.title}}</li>
+                        <li>{{ event.title }}</li>
                     {% endfor %}
                 </ul>
             </div>

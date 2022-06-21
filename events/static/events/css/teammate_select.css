@@ -1,0 +1,23 @@
+#id_favorite_teammates {
+
+}
+
+#id_favorite_teammates input {
+    display: none;
+}
+
+#id_favorite_teammates ul {
+    list-style: none;
+}
+
+#id_favorite_teammates li {
+    font-size: 1.25rem;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    background-color: var(--base);
+    padding: 1.5rem;
+}
+
+#id_favorite_teammates li:nth-child(odd) {
+    background-color: var(--base-secondary);
+}

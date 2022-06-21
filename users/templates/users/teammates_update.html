@@ -2,19 +2,21 @@
 {% load static %}
 {% block content %}
     <div>
-        <div class="form-container" id="update-profile-container">
+        <div class="form-container" id="form-container-login">
             <div class="input-form">
-                <form method="POST" enctype="multipart/form-data">
+                <form action="/profile/teammates/" method="POST">
                     {% csrf_token %}
-                    <fieldset>
-                        <legend>Teammates</legend>
-                        {{ form.as_p }}
-                        <div class="upload-btn-container">
-                            <label for="id_image" class="signup-btn" id="upload-btn">Choose Image</label>
-                        </div>
-                    </fieldset>
+                    <legend>Add Teammates</legend>
+                    <ul>
+                        {% for user in users %}
+                        <li>
+                            <label for="user_id_{{ user.id }}">{{ user }}</label>
+                            <input type="checkbox" name="user_id_{{ user.id }}" id="user_id_{{ user.id }}">
+                        </li>
+                        {% endfor %}
+                    </ul>
                     <div class="button-container">
-                        <button class="signup-btn" type="submit">Update</button>
+                        <button class="signup-btn" type="submit">Add</button>
                     </div>
                 </form>
                 <div class="text-muted">
@@ -22,7 +24,7 @@
                 </div>
             </div>
             <div class="form-sidepanel">
-                <img src="{% static 'events/images/background/dunking_outside_001.jpg' %}" alt="">
+                <img src="{% static 'events/images/background/shooting_outside_001.jpg' %}" alt="">
             </div>
         </div>
     </div>

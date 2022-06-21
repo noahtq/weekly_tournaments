@@ -1,9 +1,11 @@
 from getpass import getuser
+from xxlimited import new
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, UpdateTeammatesForm
 from events.models import Event
+from users.models import User
 
 
 def getUserEvents(user):
@@ -66,16 +68,20 @@ def profileUpdate(request):
 
 @login_required
 def teammatesUpdate(request):
+    users = User.objects.all()
     if request.method == 'POST':
-        form = UpdateTeammatesForm(request.POST, instance=request.user.profile)
-        if form.is_valid():
-            form.save()
-            messages.success(request, f'You have successfully updated your teammates')
-            return redirect('profile')
-    else:
-        form = UpdateTeammatesForm(request.POST, instance=request.user.profile)
+        data = request.POST
+        new_teammates = []
+        for k in data.keys():
+            if 'user_id' in k:
+                teammate_id = int(k.split('user_id_')[1])
+                teammate = User.objects.filter(id=teammate_id).first()
+                new_teammates.append(teammate)
+                request.user.profile.favorite_teammates.add(teammate)
+        messages.success(request, f'Teammates have been added')
+        return redirect('profile')
     
     context = {
-        'form': form
+        'users': users
     }
     return render(request, 'users/teammates_update.html', context)
