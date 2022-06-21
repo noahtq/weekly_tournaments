@@ -15,6 +15,7 @@ body {
     background-image: linear-gradient(to bottom right, var(--base), var(--base-secondary));
     color: var(--primary);
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    height: 100%;
 }
 
 main {
@@ -22,6 +23,7 @@ main {
     position: relative;
     top: 4rem;
     margin-bottom: 4rem;
+    height: 100%;
 }
 
 /* Nav Bar */
@@ -290,4 +292,8 @@ footer .tag {
     line-height: 1.5rem;
     height: fit-content;
     padding: 0.25rem 0;
+}
+
+.smaller-text {
+    font-size: 0.9rem;
 }

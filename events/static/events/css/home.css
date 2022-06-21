@@ -1,6 +1,3 @@
-.events {
-    height: 100vh;
-}
 
 .events h1 {
     text-align: center;
@@ -9,7 +6,7 @@
 }
 
 .banner {
-    height: 30rem;
+    height: 40rem;
     background-color: rgba(0, 0, 0, 0.5);
 }
 

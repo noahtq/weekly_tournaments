@@ -1,7 +1,7 @@
 {% extends "events/base.html" %}
 {% load static %}
 {% block content %}
-    <section class="events">
+    <div class="events">
         <div class="banner">
             <div class="video-wrapper">
                 <video src="{% static 'events/videos/home_page_background_v002.mp4' %}" autoPlay muted loop>
@@ -29,11 +29,28 @@
                 </div>
             </div>
         </div>
+        <section class="informational">
+            <div class="section-header">
+                <span>Welcome to</span>
+                <h1>Weekly Tournaments</h1>
+                <img src="{% static 'events/icons/company/wt_logo_001.png' %}" alt="">
+            </div>
+            <div class="section-main-text">
+                <div class="tag">
+                    <span>Mission Statement</span>
+                </div>
+                <p>
+                    Weekly Tournaments goal is to provide low commitment, fun tournaments with stat tracking and highlights
+                    available for each and every player.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Gravida arcu ac tortor dignissim convallis aenean et tortor. Ut aliquam purus sit amet luctus venenatis. Ullamcorper sit amet risus nullam. Libero nunc consequat interdum varius sit amet mattis. Est ullamcorper eget nulla facilisi etiam. Facilisis mauris sit amet massa vitae tortor condimentum lacinia. Aliquet nibh praesent tristique magna sit. Cras fermentum odio eu feugiat pretium nibh. Pellentesque diam volutpat commodo sed egestas egestas. Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac. Imperdiet proin fermentum leo vel orci porta non. Enim diam vulputate ut pharetra sit amet aliquam id. Hac habitasse platea dictumst quisque sagittis purus sit. Sem fringilla ut morbi tincidunt augue interdum velit euismod in. Turpis massa tincidunt dui ut. Volutpat ac tincidunt vitae semper quis lectus. Urna id volutpat lacus laoreet non. Condimentum mattis pellentesque id nibh. Viverra ipsum nunc aliquet bibendum enim facilisis gravida neque.
+                </p>
+            </div>
+        </section>
         {% if request.user.is_staff %}
         <div class="staff-btn-container">
             <a class="signup-btn" id="info-btn" href="{% url 'event-update' object.id %}">Update</a>
             <a class="signup-btn" id="danger-btn" href="{% url 'event-delete' object.id %}">Delete</a>
         </div>
         {% endif %}
-    </section>
+    </div>
 {% endblock content %}
