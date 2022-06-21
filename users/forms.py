@@ -28,3 +28,14 @@ class ProfileUpdateForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['image']
+
+
+class UpdateTeammatesForm(forms.ModelForm):
+    favorite_teammates = forms.ModelMultipleChoiceField(
+        queryset=User.objects.all(),
+        widget=forms.CheckboxSelectMultiple
+    )
+
+    class Meta:
+        model = Profile
+        fields = ['favorite_teammates']

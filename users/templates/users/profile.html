@@ -6,7 +6,7 @@
                 <img class="profile-image" src="{{ user.profile.image.url }}" alt="">
                 <div class="profile-info-text">
                     <h2>{{ user.first_name }} {{ user.last_name }}</h2>
-                    <h3>(Placeholder Team)</h3>
+                    <!-- <h3>(Placeholder Team)</h3> -->
                 </div>
             </div>
             <div id="profile-header-right">
@@ -16,14 +16,22 @@
         <section class="profile-events">
             <h2 class="profile-section-title">Tournaments</h2>
             <div class="upcoming-events"> 
-                <h3>Upcoming Tournaments</h3>
                 <ul>
-                    <li>Tournament Placeholder</li>
+                    {% for event in events %}
+                        <li>{{ event.title}}</li>
+                    {% endfor %}
                 </ul>
             </div>
         </section>
         <section class="profile-highlights">
-            <h2 class="profile-section-title">Highlights</h2>
+            <h2 class="profile-section-title">Favorite Teammates</h2>
+            <div class="upcoming-events"> 
+                <ul>
+                    {% for teammate in teammates %}
+                        <li>{{ teammate.first_name }} {{ teammate.last_name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </section>
     </div>
 {% endblock content %}

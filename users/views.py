@@ -1,7 +1,20 @@
+from getpass import getuser
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, UpdateTeammatesForm
+from events.models import Event
+
+
+def getUserEvents(user):
+    all_events = Event.objects.all()
+    registered_events = []
+    for event in all_events:
+        event_users = event.registered_users.all()
+        if user in event_users:
+            registered_events.append(event)
+    return registered_events
+
 
 def register(request):
     if request.method == 'POST':
@@ -17,7 +30,16 @@ def register(request):
 
 
 def profile(request):
-    return render(request, 'users/profile.html')
+
+    registered_events = getUserEvents(request.user)
+    teammates = request.user.profile.favorite_teammates.all()
+    
+    context = {
+        'events': registered_events,
+        'teammates': teammates
+    }
+
+    return render(request, 'users/profile.html', context)
 
 
 @login_required
@@ -40,3 +62,20 @@ def profileUpdate(request):
     }
 
     return render(request, 'users/update_profile.html', context)
+
+
+@login_required
+def teammatesUpdate(request):
+    if request.method == 'POST':
+        form = UpdateTeammatesForm(request.POST, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'You have successfully updated your teammates')
+            return redirect('profile')
+    else:
+        form = UpdateTeammatesForm(request.POST, instance=request.user.profile)
+    
+    context = {
+        'form': form
+    }
+    return render(request, 'users/teammates_update.html', context)
