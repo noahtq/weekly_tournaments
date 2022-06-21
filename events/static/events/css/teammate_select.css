@@ -1,5 +1,5 @@
 #teammates-list {
-    height: 40rem;
+    max-height: 40rem;
     width: 100%;
     overflow: scroll;
     overflow-x: hidden;

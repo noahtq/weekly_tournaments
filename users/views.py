@@ -75,6 +75,7 @@ def teammatesUpdate(request):
         current_teammates_id.append(teammate.id)
     if request.method == 'POST':
         data = request.POST
+        request.user.profile.favorite_teammates.clear()
         new_teammates = []
         for k in data.keys():
             if 'user_id' in k:
@@ -82,7 +83,7 @@ def teammatesUpdate(request):
                 teammate = User.objects.filter(id=teammate_id).first()
                 new_teammates.append(teammate)
                 request.user.profile.favorite_teammates.add(teammate)
-        messages.success(request, f'Teammates have been added')
+        messages.success(request, f'Teammates have been updated')
         return redirect('profile')
     
     context = {

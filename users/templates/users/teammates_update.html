@@ -7,11 +7,15 @@
                 <form action="/profile/teammates/" method="POST">
                     {% csrf_token %}
                     <legend>Select Teammates</legend>
+                    <div class="search-container">
+                        <span class="smaller-text">Search for Teammates</span>
+                        <input id="teammate-searchbar" class="searchbar" type="search" placeholder="Example: Luka Doncic">
+                    </div>
                     <ul id="teammates-list">
                         {% for user in users %}
                             {% if user.id != myuser.id %}
                                     {% if user.id in current_teammates_id %}
-                                        <li>
+                                        <li class="select-item">
                                             <label class="selected" for="user_id_{{ user.id }}">
                                                 <span class="{{ user.id }}">{{ user }}</span>
                                                 <span class="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</span>
@@ -19,7 +23,7 @@
                                             <input type="checkbox" name="user_id_{{ user.id }}" id="user_id_{{ user.id }}" checked>
                                         </li>
                                     {% else %}
-                                        <li>
+                                        <li class="select-item">
                                             <label for="user_id_{{ user.id }}">
                                                 <span class="{{ user.id }}">{{ user }}</span>
                                                 <span class="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</span>
@@ -44,4 +48,5 @@
         </div>
     </div>
     <script src="{% static 'events/javascript/selectTeammates.js' %}" defer></script>
+    <script src="{% static 'events/javascript/searchTeammates.js' %}" defer></script>
 {% endblock content %}

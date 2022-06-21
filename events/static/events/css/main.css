@@ -338,3 +338,14 @@ footer .tag {
     width: 65%;
     height: 30rem;
 }
+
+/* Search Bar */
+
+.search-container {
+    width: 95%;
+    margin: 2rem 5%;
+}
+
+.searchbar {
+    width: 100%;
+}
