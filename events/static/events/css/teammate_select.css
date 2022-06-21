@@ -1,23 +1,46 @@
-#id_favorite_teammates {
-
+#teammates-list {
+    height: 40rem;
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    border-radius: 10px;
 }
 
-#id_favorite_teammates input {
+#teammates-list li {
+    list-style: none;
+    line-height: 4rem;
+    font-size: 1.25rem;
+    font-weight: 200;
+    background-color: var(--base-secondary);
+    border-top: 1px solid var(--base);
+}
+
+#teammates-list li:first-of-type {
+    border-top: none;
+}
+
+#teammates-list input {
     display: none;
 }
 
-#id_favorite_teammates ul {
-    list-style: none;
+#teammates-list label {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    transition: 0.2s;
 }
 
-#id_favorite_teammates li {
-    font-size: 1.25rem;
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    font-weight: 200;
-    background-color: var(--base);
-    padding: 1.5rem;
+#teammates-list label:hover {
+    background-color: var(--info);
+    transition: 0.2s;
 }
 
-#id_favorite_teammates li:nth-child(odd) {
-    background-color: var(--base-secondary);
+#teammates-list label:active {
+    filter: brightness(50%);
+    transition: 0.2s;
+}
+
+#teammates-list .selected {
+    background-color: var(--success);
 }

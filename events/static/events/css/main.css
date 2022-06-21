@@ -6,6 +6,7 @@
 :root {
     --base: #171717;
     --base-secondary: #444444;
+    --base-secondary-odd: #363535;
     --primary: #EDEDED;
     --accent: #DA0037;
     --success: rgb(39, 130, 101);

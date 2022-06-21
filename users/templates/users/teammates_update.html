@@ -7,12 +7,27 @@
                 <form action="/profile/teammates/" method="POST">
                     {% csrf_token %}
                     <legend>Add Teammates</legend>
-                    <ul>
+                    <ul id="teammates-list">
                         {% for user in users %}
-                        <li>
-                            <label for="user_id_{{ user.id }}">{{ user }}</label>
-                            <input type="checkbox" name="user_id_{{ user.id }}" id="user_id_{{ user.id }}">
-                        </li>
+                            {% if user.id != myuser.id %}
+                                    {% if user.id in current_teammates_id %}
+                                        <li class="selected">
+                                            <label for="user_id_{{ user.id }}">
+                                                <span>{{ user }}</span>
+                                                <span>{{ user.first_name }} {{ user.last_name }}</span>
+                                            </label>
+                                            <input type="checkbox" name="user_id_{{ user.id }}" id="user_id_{{ user.id }}" checked>
+                                        </li>
+                                    {% else %}
+                                        <li>
+                                            <label for="user_id_{{ user.id }}">
+                                                <span>{{ user }}</span>
+                                                <span>{{ user.first_name }} {{ user.last_name }}</span>
+                                            </label>
+                                            <input type="checkbox" name="user_id_{{ user.id }}" id="user_id_{{ user.id }}">
+                                        </li>
+                                    {% endif %}
+                            {% endif %}
                         {% endfor %}
                     </ul>
                     <div class="button-container">

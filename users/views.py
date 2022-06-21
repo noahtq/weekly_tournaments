@@ -69,6 +69,10 @@ def profileUpdate(request):
 @login_required
 def teammatesUpdate(request):
     users = User.objects.all()
+    current_teammates = request.user.profile.favorite_teammates.all()
+    current_teammates_id = []
+    for teammate in current_teammates:
+        current_teammates_id.append(teammate.id)
     if request.method == 'POST':
         data = request.POST
         new_teammates = []
@@ -82,6 +86,8 @@ def teammatesUpdate(request):
         return redirect('profile')
     
     context = {
-        'users': users
+        'users': users,
+        'myuser': request.user,
+        'current_teammates_id': current_teammates_id
     }
     return render(request, 'users/teammates_update.html', context)
