@@ -8,7 +8,7 @@
     --base-secondary: #444444;
     --primary: #EDEDED;
     --accent: #DA0037;
-    --success: rgb(39, 130, 101);
+    --success: #278265;
     --error: rgb(201, 49, 49);
     --debug: rgb(206, 103, 0);
     --info: rgb(0, 170, 170);
@@ -337,4 +337,15 @@ footer .tag {
 .med-video {
     width: 65%;
     height: 30rem;
+}
+
+/* Search Bar */
+
+.search-container {
+    width: 95%;
+    margin: 2rem 5%;
+}
+
+.searchbar {
+    width: 100%;
 }
