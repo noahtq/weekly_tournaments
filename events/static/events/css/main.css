@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Semplitica Ombra';
+    src: url('../fonts/Semplicita/Semplicita_Ombra.otf');
+}
+
 :root {
     --base: #171717;
     --base-secondary: #444444;
@@ -237,10 +242,10 @@ a:active {
 }
 
 .informational .section-main-text {
-    margin-top: 2rem;
+    margin-top: 4rem;
     display: flex;
-    justify-content: space-evenly;
-    gap: 2rem;
+    justify-content: flex-start;
+    gap: 3rem;
 }
 
 .informational .section-main-text .tag {
@@ -253,9 +258,29 @@ a:active {
     border-bottom: 2px solid var(--accent);
 }
 
-.informational .section-main-text p {
+.informational .section-main-text p, li {
     font-weight: 400;
     line-height: 2rem;
+}
+
+.list-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 5rem;
+}
+
+.red-list {
+    list-style: none;
+}
+
+.red-list li::before {
+    content: "\2022";
+    color: var(--accent);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
 }
 
 /* Images */
@@ -296,4 +321,20 @@ footer .tag {
 
 .smaller-text {
     font-size: 0.9rem;
+}
+
+/* Embed Videos */
+
+.iframe-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.med-video {
+    width: 65%;
+    height: 30rem;
 }
