@@ -6,23 +6,23 @@
             <div class="input-form">
                 <form action="/profile/teammates/" method="POST">
                     {% csrf_token %}
-                    <legend>Add Teammates</legend>
+                    <legend>Select Teammates</legend>
                     <ul id="teammates-list">
                         {% for user in users %}
                             {% if user.id != myuser.id %}
                                     {% if user.id in current_teammates_id %}
-                                        <li class="selected">
-                                            <label for="user_id_{{ user.id }}">
-                                                <span>{{ user }}</span>
-                                                <span>{{ user.first_name }} {{ user.last_name }}</span>
+                                        <li>
+                                            <label class="selected" for="user_id_{{ user.id }}">
+                                                <span class="{{ user.id }}">{{ user }}</span>
+                                                <span class="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</span>
                                             </label>
                                             <input type="checkbox" name="user_id_{{ user.id }}" id="user_id_{{ user.id }}" checked>
                                         </li>
                                     {% else %}
                                         <li>
                                             <label for="user_id_{{ user.id }}">
-                                                <span>{{ user }}</span>
-                                                <span>{{ user.first_name }} {{ user.last_name }}</span>
+                                                <span class="{{ user.id }}">{{ user }}</span>
+                                                <span class="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</span>
                                             </label>
                                             <input type="checkbox" name="user_id_{{ user.id }}" id="user_id_{{ user.id }}">
                                         </li>
@@ -31,7 +31,7 @@
                         {% endfor %}
                     </ul>
                     <div class="button-container">
-                        <button class="signup-btn" type="submit">Add</button>
+                        <button class="signup-btn" type="submit">Submit</button>
                     </div>
                 </form>
                 <div class="text-muted">
@@ -43,4 +43,5 @@
             </div>
         </div>
     </div>
+    <script src="{% static 'events/javascript/selectTeammates.js' %}" defer></script>
 {% endblock content %}
