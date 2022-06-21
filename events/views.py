@@ -49,6 +49,7 @@ class EventListView(ListView):
 class EventDetailView(DetailView):
     model = Event
 
+
     def get_context_data(self, *args, **kwargs):
         path = self.request.path
         event_pk = int(path.split('event/')[1].split('/')[0])

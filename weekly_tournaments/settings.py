@@ -140,3 +140,5 @@ EMAIL_HOST_PASSWORD = os.environ.get('WT_EMAIL_PASS')
 
 #Make sure to update this for production
 PAYPAL_CLIENT_ID = 'AYUc3atgIYdclpDkiFZun38_nPUgYqDCbFcMJTZasVgQ1nQpRbBKAchtuKLTm748o0RscKlG3dpU6ga5'
+
+SECURE_REFERRER_POLICY = 'no-referrer-when-downgrade'

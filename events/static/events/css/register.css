@@ -77,7 +77,7 @@
     line-height: 2rem;
 }
 
-.input-form .helptext, ul {
+.input-form .helptext, .input-form .helptext ul {
     font-size: 0.8rem;
     filter: brightness(75%);
     margin-left: 1rem;
