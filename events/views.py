@@ -105,7 +105,7 @@ def EventRegisterView(request):
         event.registered_users.add(user)
 
         messages.success(request, f'You have been registered for {event.title}')
-        return redirect('/')
+        return redirect('event-register-success')
 
     context = {
         'event': event,
@@ -115,4 +115,8 @@ def EventRegisterView(request):
     }
 
     return render(request, 'events/event_register.html', context)
+
+
+def eventSuccessView(request):
+    return render(request, 'events/event_register_success.html')
 
