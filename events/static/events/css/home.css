@@ -10,7 +10,7 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-video, img {
+.banner video, .banner img {
     object-fit: cover;
     position: absolute;
     top: 0;
