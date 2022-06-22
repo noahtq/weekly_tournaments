@@ -234,3 +234,11 @@
     background-color: var(--info);
     color: black;
 }
+
+/* Individual Img Positioning */
+
+#side-img-login {
+    position: relative;
+    top: -80px;
+    left: -110px;
+}
