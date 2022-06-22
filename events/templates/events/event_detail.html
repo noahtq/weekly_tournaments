@@ -32,46 +32,6 @@
         <!-- Basketball Details -->
         {% if object.type == '1' %}
             <section class="informational">
-                <div class="section-header" id="tournament-info">
-                    <span>Tournament</span>
-                    <h1>Info</h1>
-                    <div class="iframe-container">
-                        <iframe class="med-video" src="https://www.youtube.com/embed/Yv3e3wDQIGU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <span id="intro-video-title">Introduction Video</span>
-                    </div>
-                </div>
-                <div class="section-main-text">
-                    <div class="tag">
-                        <span>Info</span>
-                    </div>
-                    <p>
-                        The tournament is a 5 vs. 5 full court tournament, consisting of 8 teams.
-                        Each team will get to play at least 2 games. As there is a 2-game regular season, followed by a 4 team single-elimination tournament.
-                        All games will be officiated by a trained referee. <br>
-                        The tiebreaker rules are as follows, ...
-                    </p>
-                </div>
-                <div class="section-main-text">
-                    <div class="tag">
-                        <span>Rules</span>
-                    </div>
-                    <div class="list-container">
-                        <ul class="red-list">
-                            <li>The games will be officiated using NBA rules, apart from a few exceptions.</li>
-                            <li><a href="https://official.nba.com/rule-no-1-court-dimensions-equipment/">NBA rulebook</a></li>
-                            <li>Exception 1: any shot beyond half-court is worth 4-points</li>
-                            <li>Exception 2: 4-fouls to foul out</li>
-                        </ul>
-                        <ul class="red-list">
-                            <li>Each half is 10-minutes long</li>
-                            <li>5-minute halftime</li>
-                            <li>If a player on your team is unable to play, we will provide a sub</li>
-                            <li>The sub will either be one provided by the tournament, or will be a player from an eliminated team</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <section class="informational">
                 <div class="section-header">
                     <span>Tournament</span>
                     <h1>Pricing</h1>
@@ -86,16 +46,72 @@
                     </div>
                     <div class="list-container">
                         <ul class="red-list">
-                            <li>At least 2 5 vs. 5 games each lasting 30-minutes</li>
+                            <li>At least 2 5 vs. 5 games</li>
                             <li>Up to 4-games if you make it to the championship</li>
                             <li>Games are held in an indoor venue on a full-court basketball court</li>
-                            <li>Trained referees are provided for each game</li>
+                            <li>Referees are provided for each game</li>
                         </ul>
                         <ul class="red-list">
                             <li>Pennies are provided</li>
                             <li>Gatorade and water are provided</li>
-                            <li>Scoreboard and scoreboard operator for each game</li>
-                            <li>Your stats are recorded and your highlights are uploaded to YouTube</li>
+                            <li><a href="{% static 'events/images/products/tshirt/wt_tshirt_001.jpg' %}" target="_blank">Free Weekly Tournaments t-shirt</a></li>
+                            <li>Your stats are recorded and your highlights are uploaded to our <a href="https://www.youtube.com/channel/UCTEw5NSPbEAAXQUxBdYfyjw" target="_blank">YouTube channel</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="informational">
+                <div class="section-header" id="tournament-info">
+                    <span>Tournament</span>
+                    <h1>Info</h1>
+                    <div class="iframe-container">
+                        <iframe class="med-video" src="https://www.youtube.com/embed/Yv3e3wDQIGU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <span id="intro-video-title">Introduction Video</span>
+                    </div>
+                </div>
+                <div class="section-main-text">
+                    <div class="tag">
+                        <span>Info</span>
+                    </div>
+                    <p>
+                        The event is a 5 vs. 5 full court tournament, consisting of 8 teams.
+                        Each team will get to play at least 2 games. As there is a 2-game regular season that determines who goes to the final four.
+                        The final four is single-elimination, so in total that's a max of four games.
+                        All games will be officiated by a trained referee. <br>
+                    </p>
+                </div>
+                <div class="section-main-text">
+                    <div class="tag">
+                        <span>Rules</span>
+                    </div>
+                    <div class="list-container">
+                        <ul class="red-list">
+                            <li>The games will be officiated using NBA rules, apart from a few exceptions.</li>
+                            <li><a href="https://official.nba.com/rule-no-1-court-dimensions-equipment/">NBA rulebook</a></li>
+                            <li>Exception: any shot beyond half-court is worth 4-points</li>
+                            <li>Exception: 4-fouls to foul out</li>
+                        </ul>
+                        <ul class="red-list">
+                            <li>Each half is 10-minutes long</li>
+                            <li>2-minute halftime</li>
+                            <li>If a player on your team is unable to play, we will provide a sub</li>
+                            <li>The sub will either be one provided by the tournament, or will be a player from an eliminated team</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section-main-text">
+                    <div class="tag">
+                        <span>Tie<br> Breaker<br>Rules</span>
+                    </div>
+                    <div class="list-and-text-container">
+                        <p class="underline">
+                            The tiebreaker rules in order:
+                        </p>
+                        <ul class="red-list">
+                            <li>the winner of any head to head matchups</li>
+                            <li>Higher point differential</li>
+                            <li>Total points scored</li>
+                            <li>Shoot for it</li>
                         </ul>
                     </div>
                 </div>

@@ -111,7 +111,8 @@ def EventRegisterView(request):
         'event': event,
         'registered': isRegistered,
         'client_id': settings.PAYPAL_CLIENT_ID,
-        'is_filled': isFilled
+        'is_filled': isFilled,
+        'adult_only': True #replace this in future version to add adult only and age defined in event model
     }
 
     return render(request, 'events/event_register.html', context)
