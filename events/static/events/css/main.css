@@ -349,3 +349,41 @@ footer .tag {
 .searchbar {
     width: 100%;
 }
+
+/* Special Lists */
+
+.special-list ul {
+    max-height: 40rem;
+    width: 40rem;
+    overflow: hidden;
+}
+
+.special-list li {
+    list-style: none;
+    line-height: 4rem;
+    font-size: 1.25rem;
+    font-weight: 200;
+    border-top: 1px solid var(--base);
+    background-color: var(--base-secondary);
+}
+
+.special-list li:first-of-type {
+    border-top: none;
+    border-radius: 10px 10px 0 0;
+}
+
+.special-list li:last-of-type {
+    border-radius: 0 0 10px 10px;
+}
+
+.special-list li:only-of-type {
+    border-radius: 10px;
+}
+
+.special-list .special-container {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    transition: 0.2s;
+}

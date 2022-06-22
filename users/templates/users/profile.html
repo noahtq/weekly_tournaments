@@ -16,20 +16,30 @@
         </section>
         <section class="profile-events">
             <h2 class="profile-section-title">Tournaments</h2>
-            <div class="upcoming-events"> 
-                <ul>
+            <div class="profile-tab-info">
+                <ul class="special-list">
                     {% for event in events %}
-                        <li>{{ event.title }}</li>
+                        <li>
+                            <div class="special-container">
+                                <span>{{ event.title }}</span>
+                                <span>{{ event.event_datetime|date:"F j Y, g:iA" }}</span>
+                            </div>
+                        </li>
                     {% endfor %}
                 </ul>
             </div>
         </section>
         <section class="profile-highlights">
             <h2 class="profile-section-title">Favorite Teammates</h2>
-            <div class="upcoming-events"> 
-                <ul>
+            <div class="profile-tab-info"> 
+                <ul class="special-list">
                     {% for teammate in teammates %}
-                        <li>{{ teammate.first_name }} {{ teammate.last_name }}</li>
+                        <li>
+                            <div class="special-container">
+                                <span>{{ teammate }}</span>
+                                <span>{{ teammate.first_name }} {{ teammate.last_name }}</span>
+                            </div>
+                        </li>
                     {% endfor %}
                 </ul>
             </div>

@@ -1,0 +1,27 @@
+{% extends "events/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="form-container form-container-event-register">
+        <div class="input-form">
+            <div class="event-register-info">
+                <legend>Congrats! You have been registered for the tournament.</legend>
+                <div class="success-text">
+                    <p class="center">
+                        The next step is to add teammates if you have them, 
+                        but don't worry we'll make a team for you if you're solo this time.
+                    </p>
+                    <p class="center">
+                        You can also choose teammates later from your <a id="inline-link" href="{% url 'profile' %}">profile</a> page.
+                    </p>
+                </div>
+            </div>
+            <div class="success-page-buttons">
+                <a class="btn btn-info" href="{% url 'profile-teammates' %}">Teammates</a>
+                <a class="btn" href="{% url 'events-home' %}">Go Home</a>
+            </div>
+        </div>
+        <div class="form-sidepanel">
+            <img src="{% static 'events/images/background/dunking_outside_001.jpg' %}" alt="">
+        </div>
+    </div>
+{% endblock %}
