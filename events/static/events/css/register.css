@@ -196,7 +196,7 @@
     text-decoration: none;
 }
 
-.signup-btn:hover {
+body.hasHover .signup-btn:hover {
     color: black;
     background-color: var(--primary);
     transition: 0.3s;
@@ -294,7 +294,7 @@
     font-size: 1rem;
 }
 
-#upload-btn:hover {
+body.hasHover #upload-btn:hover {
     background-color: var(--info);
     border-color: var(--info);
 }
@@ -304,7 +304,7 @@
     color: var(--error);
 }
 
-#danger-btn:hover {
+body.hasHover #danger-btn:hover {
     background-color: var(--error);
     color: black;
 }
@@ -315,7 +315,7 @@
     text-decoration: none;
 }
 
-#info-btn:hover {
+body.hasHover #info-btn:hover {
     background-color: var(--info);
     color: black;
 }

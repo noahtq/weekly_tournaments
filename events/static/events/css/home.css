@@ -194,7 +194,7 @@
     color: var(--primary);
 }
 
-.banner-secondary a:hover {
+body.hasHover .banner-secondary a:hover {
     color: black;
     background-color: var(--primary);
     transition: 0.3s;

@@ -53,7 +53,7 @@
     width: 100%;
 }
 
-#teammates-list label:hover {
+body.hasHover #teammates-list label:hover {
     background-color: var(--info);
     transition: 0.2s;
 }
