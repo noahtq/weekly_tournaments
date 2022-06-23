@@ -10,6 +10,20 @@
     overflow: hidden;
 }
 
+@media only screen and (max-width: 1150px) {
+    .form-container {
+        grid-template-areas: "input-form";
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .form-container {
+        margin: 5rem 5%;
+        height: 35rem;
+    }
+}
+
 .form-container-register {
     height: 65rem;
 }
@@ -30,6 +44,16 @@
 #update-profile-container {
     height: 55rem;
     grid-template-areas: "input-form profile-sidepanel";
+}
+
+@media only screen and (max-width: 650px) {
+    .form-container-login {
+        height: 35rem;
+    }
+
+    .form-container-register {
+        height: 75rem;
+    }
 }
 
 .input-form {
@@ -96,6 +120,18 @@
 .input-form .button-container {
     display: flex;
     justify-content: center;
+}
+
+@media only screen and (max-width: 650px) {
+
+    .input-form {
+        margin: 2rem;
+        font-size: 1rem;
+    }
+
+    .input-form input {
+        height: 2rem;
+    }
 }
 
 .staff-btn-container {
@@ -193,6 +229,12 @@
     width: 25rem;
     border-radius: 50%;
     object-fit: cover;
+}
+
+@media only screen and (max-width: 1150px) {
+    .form-sidepanel {
+        display: none;
+    }
 }
 
 #id_image {
