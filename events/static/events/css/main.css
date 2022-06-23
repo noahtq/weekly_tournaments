@@ -238,16 +238,28 @@ a:active {
     margin: 0 10%;
     margin-top: 5rem;
     margin-bottom: 10rem;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .informational .section-header {
     text-transform: uppercase;
+    text-align: center;
+    word-wrap: break-word;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     height: 25rem;
+}
+
+.informational .section-header div:before {
+    content: "";
+    margin-left: -100%;
+}
+
+.informational .section-header div:after {
+    content: "";
+    margin-right: -100%;
 }
 
 .informational .section-header img {
@@ -323,6 +335,45 @@ a:active {
 
 .big-text {
     font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 700px) {
+
+    .informational .section-header span {
+        font-size: 1.5rem;
+    }
+
+    .informational .section-header h1 {
+        font-size: 3.5rem;
+    }
+
+    .informational .section-header img {
+        width: 7rem;
+    }
+
+    .informational .section-main-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .informational .section-main-text .tag {
+        width: fit-content;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .informational .section-header span {
+        font-size: 1.15rem;
+    }
+
+    .informational .section-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .informational .section-header img {
+        width: 6rem;
+    }
 }
 
 /* Images */
