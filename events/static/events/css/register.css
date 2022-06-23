@@ -278,6 +278,10 @@ body.hasHover .signup-btn:hover {
     .form-sidepanel {
         display: none;
     }
+
+    .profile-sidepanel {
+        display: none;
+    }
 }
 
 #id_image {

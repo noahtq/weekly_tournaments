@@ -34,7 +34,6 @@ main {
     min-height: 50vh;
     position: relative;
     top: 4rem;
-    margin-bottom: 4rem;
     height: 100%;
 }
 
@@ -207,6 +206,12 @@ body.hasHover .btn:hover {
         font-size: 1.1rem;
         padding: 0.5rem;
     }
+}
+
+/* Don't wrap button */
+
+.no-wrap {
+    white-space: nowrap;
 }
 
 /* Info Button */
@@ -516,7 +521,14 @@ footer .tag {
     text-align: center;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     transition: 0.2s;
 }
+
+.special-list .special-container span {
+    padding: 1.5rem;
+    line-height: 1.5rem;
+}
+
 
 

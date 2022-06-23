@@ -10,8 +10,12 @@
                 </div>
             </div>
             <div id="profile-header-right">
-                <a class="btn btn-info" href="{% url 'profile-update' %}">Edit Profile</a>
-                <a class="btn btn-info" href="{% url 'profile-teammates' %}">Edit Teammates</a>
+                <div>
+                    <a class="btn btn-info no-wrap" href="{% url 'profile-update' %}">Edit Profile</a>
+                </div>
+                <div>
+                    <a class="btn btn-info no-wrap" href="{% url 'profile-teammates' %}">Edit Teammates</a>
+                </div>
             </div>
         </section>
         <section class="profile-events">
