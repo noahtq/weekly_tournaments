@@ -28,16 +28,14 @@
     font-size: 1rem;
 }
 
+#paypal-button-container {
+    text-align: center;
+}
+
 .success-text p {
     display: inline-block;
 }
 
 #inline-link {
     font-size: 1rem;
-}
-
-#side-img-event-register {
-    position: relative;
-    top: -60px;
-    left: -180px;
 }
