@@ -201,6 +201,14 @@ a:active {
     transition: 0.2s;
 }
 
+@media only screen and (max-width: 650px) {
+
+    .btn {
+        font-size: 1.1rem;
+        padding: 0.5rem;
+    }
+}
+
 /* Info Button */
 .btn-info {
     color: var(--info);
@@ -301,7 +309,7 @@ a:active {
 .list-container {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     gap: 5rem;
 }
 
@@ -428,8 +436,29 @@ footer .tag {
 }
 
 .med-video {
-    width: 65%;
+    width: 53rem;
     height: 30rem;
+}
+
+@media only screen and (max-width: 1100px) {
+    .med-video {
+        width: 36rem;
+        height: 20rem;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .med-video {
+        width: 27rem;
+        height: 15rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .med-video {
+        width: 21.5rem;
+        height: 12rem;
+    }
 }
 
 /* Search Bar */

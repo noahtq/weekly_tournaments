@@ -55,7 +55,7 @@
 
 .banner-title {
     grid-area: banner-title;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .banner-secondary{
@@ -65,6 +65,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 1.5rem;
 }
 
 .banner-secondary h3, a{
@@ -72,6 +73,11 @@
 }
 
 .banner-secondary h3 {
+    font-size: 1.15rem;
+    font-weight: 200;
+}
+
+.banner-secondary h4 {
     font-weight: 200;
 }
 
@@ -124,6 +130,10 @@
         font-size: 0.85rem;
         font-weight: 200;
     }
+
+    .home .banner-secondary h3 {
+        font-size: 1.25rem;
+    }
 }
 
 @media only screen and (max-width: 650px) {
@@ -148,6 +158,10 @@
 
     .countdown-text .small {
         font-size: 0.7rem;
+    }
+
+    .home .banner-secondary h3 {
+        font-size: 1rem;
     }
 }
 
