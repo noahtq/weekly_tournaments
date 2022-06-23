@@ -41,9 +41,21 @@
     height: 40rem;
 }
 
+.form-container-teammates {
+    height: 55rem;
+}
+
 #update-profile-container {
     height: 55rem;
     grid-template-areas: "input-form profile-sidepanel";
+}
+
+@media only screen and (max-width: 1250px) {
+
+    .form-container-teammates {
+        height: 47rem;
+    }
+
 }
 
 @media only screen and (max-width: 650px) {
@@ -58,6 +70,11 @@
     .form-container-event-register {
         height: 45rem;
     }
+
+    .form-container-teammates {
+        height: 45rem;
+    }
+
 }
 
 .input-form {
@@ -70,9 +87,15 @@
     font-weight: 200;
 }
 
+.legend-container {
+    display: flex;
+    justify-content: center;
+}
+
 .input-form legend {
     font-size: 2rem;
     text-align: center;
+    text-transform: center;
 }
 
 .input-form p {
@@ -108,7 +131,7 @@
 .input-form .helptext, .form-container ul {
     font-size: 0.8rem;
     filter: brightness(75%);
-    margin-left: 1rem;
+    margin: 0 1rem;
     line-height: 1.25rem;
 }
 

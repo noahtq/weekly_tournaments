@@ -2,14 +2,16 @@
 {% load static %}
 {% block content %}
     <div>
-        <div class="form-container" id="form-container-login">
-            <div class="input-form">
-                <form action="/profile/teammates/" method="POST">
+        <div class="form-container form-container-teammates">
+            <div class="input-form" id="teammates-input">
+                <form id="teammates-form" action="/profile/teammates/" method="POST">
                     {% csrf_token %}
-                    <legend>Select Teammates</legend>
+                    <div class="legend-container">
+                        <legend>Select Teammates</legend>
+                    </div>
                     <div class="search-container">
                         <span class="smaller-text">Search for Teammates</span>
-                        <input id="teammate-searchbar" class="searchbar" type="search" placeholder="Example: Luka Doncic">
+                        <input id="teammate-searchbar" class="searchbar searchbar-med" type="search" placeholder="Example: Luka Doncic">
                     </div>
                     <ul id="teammates-list">
                         {% for user in users %}
@@ -35,7 +37,7 @@
                         {% endfor %}
                     </ul>
                     <div class="button-container">
-                        <button class="signup-btn" type="submit">Submit</button>
+                        <button class="btn" type="submit">Submit</button>
                     </div>
                 </form>
                 <div class="text-muted">

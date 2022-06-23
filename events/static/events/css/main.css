@@ -464,11 +464,20 @@ footer .tag {
 /* Search Bar */
 
 .search-container {
-    width: 95%;
-    margin: 2rem 5%;
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-container span {
+    width: 100%;
+    text-align: left;
 }
 
 .searchbar {
+    margin: 0;
     width: 100%;
 }
 
