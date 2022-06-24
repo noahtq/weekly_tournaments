@@ -1,14 +1,41 @@
 const searchNode = document.getElementById('teammate-searchbar');
 const listElements = document.querySelectorAll('li[class=select-item]')
 
-function updateList(e) {
+function addBordersToNodes(nodesArray) {
 
-    //add border to list elements
-    for (let i = 0; i < listElements.length; i++) {
-        if(i > 1) {
-            listElements[i].style.borderTop = '1px solid var(--base)';
+    let iterArray;
+
+    if (!nodesArray) {
+        iterArray = listElements;
+    } else {
+        iterArray = nodesArray;
+    }
+
+    if(iterArray.length > 1) {
+        //add border to list elements
+        for (let i = 0; i < iterArray.length; i++) {
+            if(i > 0) {
+                try {
+                    iterArray[i].style.borderTop = '1px solid var(--base)';
+                } catch(error) {
+                    return;
+                }
+            } else {
+                iterArray[i].style.borderTop = '';
+            }
+        }
+    } else {
+        try {
+            for (let listNode of iterArray) {
+                listNode.style.borderTop = '';
+            }
+        } catch(error) {
+            return;
         }
     }
+}
+
+function updateList(e) {
 
     if(e.target.value.trim() == '') {
         for (let listNode of listElements) {
@@ -25,19 +52,18 @@ function updateList(e) {
         for (let grandChild of grandchildText) {
             const innerText = grandChild.innerHTML.toLowerCase()
             if(innerText.includes(e.target.value.toLowerCase())) {
-                visibleNodes.push(listNode);
                 show = true;
             }
+        }
+        if (show) {
+            visibleNodes.push(listNode);
         }
         show ? listNode.style.display = 'list-item' : listNode.style.display = 'none';
     }
 
-    //remove border if there is only one list element visible
-    if (visibleNodes.length <= 2) {
-        for (let listNode of listElements) {
-            listNode.style.borderTop = '0px solid black';
-        }
-    }
+    addBordersToNodes(visibleNodes);
+
 }
 
 searchNode.addEventListener('keydown', updateList);
+addBordersToNodes();
