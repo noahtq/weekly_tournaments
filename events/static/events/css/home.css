@@ -84,7 +84,7 @@
 /* Home Page Styles */
 
 .home .banner {
-    height: 94vh;
+    height: 92vh;
 }
 
 .countdown-text {
@@ -113,7 +113,7 @@
     font-size: 1.5rem;
 }
 
-.banner-secondary .home-btn {
+#home-wide-btn {
     width: 12rem;
 }
 
@@ -178,11 +178,27 @@
     }
 }
 
+@media only screen and (max-height: 500px) {
+    .banner .overlay-text {
+        grid-template-rows: 15% 20% 1fr;
+    }
+}
+
+@media only screen and (max-height: 330px) {
+
+    .banner .overlay-text {
+        grid-template-rows: 0% 20% 1fr;
+    }
+
+    .countdown-text {
+        display: none;
+    }
+}
+
 /* Button Styles */
 
-.banner-secondary a {
+/* .banner-secondary a {
     color: var(--primary);
-    width: 10rem;
     font-weight: 300;
     text-decoration: none;
     transition: 0.3s;
@@ -203,7 +219,7 @@ body.hasHover .banner-secondary a:hover {
 .banner-secondary a:active {
     filter: brightness(50%);
     transition: 0.2s;
-}
+} */
 
 /* Text Section */
 

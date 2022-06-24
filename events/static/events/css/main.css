@@ -183,6 +183,7 @@ a:active {
     width: 10rem;
     transition: 0.3s;
     text-decoration: none;
+    text-align: center;
 }
 
 .btn:visited {
@@ -201,6 +202,14 @@ body.hasHover .btn:hover {
 }
 
 @media only screen and (max-width: 650px) {
+
+    .btn {
+        font-size: 1.1rem;
+        padding: 0.5rem;
+    }
+}
+
+@media only screen and (max-height: 650px) {
 
     .btn {
         font-size: 1.1rem;
@@ -375,6 +384,17 @@ body.hasHover .btn-info:hover {
     }
 }
 
+@media only screen and (max-height: 700px) {
+
+    .informational .section-header span {
+        font-size: 1.5rem;
+    }
+
+    .informational .section-header h1 {
+        font-size: 3.5rem;
+    }
+}
+
 @media only screen and (max-width: 500px) {
     .informational .section-header span {
         font-size: 1.15rem;
@@ -488,6 +508,12 @@ footer .tag {
 
 /* Special Lists */
 
+.special-list-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
 .special-list ul {
     max-height: 40rem;
     width: 40rem;
@@ -528,6 +554,25 @@ footer .tag {
 .special-list .special-container span {
     padding: 1.5rem;
     line-height: 1.5rem;
+}
+
+@media only screen and (max-width: 500px) {
+
+    .special-list li {
+        line-height: 3rem;
+        font-size: 1rem;
+        font-weight: 200;
+        border-top: 1px solid var(--base);
+        background-color: var(--base-secondary);
+    }
+
+    .special-list .special-container span {
+        padding: 1rem;
+        line-height: 1.25rem;
+        word-wrap: break-word;
+        width: 50%
+    }
+
 }
 
 
