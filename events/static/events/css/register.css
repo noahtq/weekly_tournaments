@@ -205,6 +205,9 @@ body.hasHover .signup-btn:hover {
 .signup-btn:active {
     filter: brightness(50%);
     transition: 0.2s;
+    color: black;
+    background-color: var(--primary);
+    transition: 0.3s;
 }
 
 .input-form .text-muted {

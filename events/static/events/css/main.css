@@ -164,6 +164,7 @@ body.hasHover a:hover {
 a:active {
     filter: brightness(50%);
     transition: 0.2s;
+    color: var(--accent);
 }
 
 /* Buttons */
@@ -198,6 +199,9 @@ body.hasHover .btn:hover {
 
 .btn:active {
     filter: brightness(50%);
+    color: black;
+    background-color: var(--primary);
+    transition: 0.3s;
     transition: 0.2s;
 }
 
@@ -230,6 +234,10 @@ body.hasHover .btn:hover {
 }
 
 body.hasHover .btn-info:hover {
+    background-color: var(--info);
+}
+
+.btn-info:active {
     background-color: var(--info);
 }
 
