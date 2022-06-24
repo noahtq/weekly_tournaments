@@ -4,7 +4,7 @@
     <div class="events">
         <div class="banner">
             <div class="video-wrapper">
-                <video src="{% static 'events/videos/home_page_background_v002.mp4' %}" autoPlay muted loop>
+                <video src="{% static 'events/videos/background_video_002.mp4' %}" autoPlay muted loop playsinline>
                     Video could not load
                 </video>
                 <div class="overlay-text">
@@ -24,7 +24,7 @@
                         {% else %}
                             <span class="btn-deactivated">Tournament Full</span>
                         {% endif %}
-                        <h3>{{ object.registered_users.count }} / {{ object.max_users }} Spots Filled</h3>
+                        <h4>{{ object.registered_users.count }} / {{ object.max_users }} Spots Filled</h4>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                     <div class="list-container">
                         <ul class="red-list">
                             <li>The games will be officiated using NBA rules, apart from a few exceptions.</li>
-                            <li><a href="https://official.nba.com/rule-no-1-court-dimensions-equipment/">NBA rulebook</a></li>
+                            <li><a href="https://official.nba.com/rule-no-1-court-dimensions-equipment/" target="_blank">NBA rulebook</a></li>
                             <li>Exception: any shot beyond half-court is worth 4-points</li>
                             <li>Exception: 4-fouls to foul out</li>
                         </ul>

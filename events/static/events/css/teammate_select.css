@@ -1,9 +1,27 @@
 #teammates-list {
-    max-height: 40rem;
+    max-height: 30rem;
     width: 100%;
     overflow: scroll;
     overflow-x: hidden;
     border-radius: 10px;
+}
+
+#teammates-input {
+    margin: 0 5%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#teammates-form {
+    max-width: 100%;
+
+}
+
+#teammates-list {
+    width: 100%;
+    filter: brightness(75%);
+    margin-left: 0;
 }
 
 #teammates-list li {
@@ -35,7 +53,7 @@
     width: 100%;
 }
 
-#teammates-list label:hover {
+body.hasHover #teammates-list label:hover {
     background-color: var(--info);
     transition: 0.2s;
 }
@@ -47,4 +65,32 @@
 
 #teammates-list .selected {
     background-color: var(--success);
+}
+
+
+
+@media only screen and (max-width: 1250px) {
+
+    #teammates-list {
+        max-height: 20rem;
+    }
+
+    #teammates-list li {
+        line-height: 3rem;
+        font-size: 1.15rem;
+    }
+    
+}
+
+@media only screen and (max-width: 650px) {
+
+    #teammates-list {
+        max-height: 20rem;
+    }
+
+    #teammates-list li {
+        line-height: 2.5rem;
+        font-size: 0.95rem;
+    }
+    
 }

@@ -111,3 +111,6 @@ static_collected
 
 #Mac
 .DS_Store
+
+#Project Specific
+profile_pics/

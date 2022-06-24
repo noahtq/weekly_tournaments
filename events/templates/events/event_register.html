@@ -4,7 +4,9 @@
     <div class="form-container form-container-event-register">
         <div class="input-form">
             <div class="event-register-info">
-                <legend>Register for {{ event.title }}</legend>
+                <div class="legend-container">
+                    <legend>Register for {{ event.title }}</legend>
+                </div>
                 {% if adult_only %}
                     <h3>This tournament is for participants 16+</h3>
                 {% endif %}

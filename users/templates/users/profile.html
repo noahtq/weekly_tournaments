@@ -10,38 +10,46 @@
                 </div>
             </div>
             <div id="profile-header-right">
-                <a class="btn btn-info" href="{% url 'profile-update' %}">Edit Profile</a>
-                <a class="btn btn-info" href="{% url 'profile-teammates' %}">Edit Teammates</a>
+                <div>
+                    <a class="btn btn-info no-wrap" href="{% url 'profile-update' %}">Edit Profile</a>
+                </div>
+                <div>
+                    <a class="btn btn-info no-wrap" href="{% url 'profile-teammates' %}">Edit Teammates</a>
+                </div>
             </div>
         </section>
-        <section class="profile-events">
+        <section class="profile-events profile-section">
             <h2 class="profile-section-title">Tournaments</h2>
             <div class="profile-tab-info">
-                <ul class="special-list">
-                    {% for event in events %}
-                        <li>
-                            <div class="special-container">
-                                <span>{{ event.title }}</span>
-                                <span>{{ event.event_datetime|date:"F j Y, g:iA" }}</span>
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
+                <div class="special-list-container">
+                    <ul class="special-list">
+                        {% for event in events %}
+                            <li>
+                                <div class="special-container">
+                                    <span>{{ event.title }}</span>
+                                    <span>{{ event.event_datetime|date:"F j Y, g:iA" }}</span>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </section>
-        <section class="profile-highlights">
+        <section class="profile-highlights profile-section">
             <h2 class="profile-section-title">Favorite Teammates</h2>
-            <div class="profile-tab-info"> 
-                <ul class="special-list">
-                    {% for teammate in teammates %}
-                        <li>
-                            <div class="special-container">
-                                <span>{{ teammate }}</span>
-                                <span>{{ teammate.first_name }} {{ teammate.last_name }}</span>
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
+            <div class="profile-tab-info">
+                <div class="special-list-container">
+                    <ul class="special-list">
+                        {% for teammate in teammates %}
+                            <li>
+                                <div class="special-container">
+                                    <span>{{ teammate }}</span>
+                                    <span>{{ teammate.first_name }} {{ teammate.last_name }}</span>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div> 
             </div>
         </section>
     </div>

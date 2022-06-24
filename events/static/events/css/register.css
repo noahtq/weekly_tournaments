@@ -10,8 +10,22 @@
     overflow: hidden;
 }
 
+@media only screen and (max-width: 1150px) {
+    .form-container {
+        grid-template-areas: "input-form";
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .form-container {
+        margin: 5rem 5%;
+        height: 35rem;
+    }
+}
+
 .form-container-register {
-    height: 65rem;
+    height: 70rem;
 }
 
 .form-container-login {
@@ -27,9 +41,40 @@
     height: 40rem;
 }
 
+.form-container-teammates {
+    height: 55rem;
+}
+
 #update-profile-container {
     height: 55rem;
     grid-template-areas: "input-form profile-sidepanel";
+}
+
+@media only screen and (max-width: 1250px) {
+
+    .form-container-teammates {
+        height: 47rem;
+    }
+
+}
+
+@media only screen and (max-width: 650px) {
+    .form-container-login {
+        height: 35rem;
+    }
+
+    .form-container-register {
+        height: 75rem;
+    }
+
+    .form-container-event-register {
+        height: 45rem;
+    }
+
+    .form-container-teammates {
+        height: 45rem;
+    }
+
 }
 
 .input-form {
@@ -42,9 +87,15 @@
     font-weight: 200;
 }
 
+.legend-container {
+    display: flex;
+    justify-content: center;
+}
+
 .input-form legend {
     font-size: 2rem;
     text-align: center;
+    text-transform: center;
 }
 
 .input-form p {
@@ -80,7 +131,7 @@
 .input-form .helptext, .form-container ul {
     font-size: 0.8rem;
     filter: brightness(75%);
-    margin-left: 1rem;
+    margin: 0 1rem;
     line-height: 1.25rem;
 }
 
@@ -96,6 +147,18 @@
 .input-form .button-container {
     display: flex;
     justify-content: center;
+}
+
+@media only screen and (max-width: 650px) {
+
+    .input-form {
+        margin: 2rem;
+        font-size: 1rem;
+    }
+
+    .input-form input {
+        height: 2rem;
+    }
 }
 
 .staff-btn-container {
@@ -133,7 +196,7 @@
     text-decoration: none;
 }
 
-.signup-btn:hover {
+body.hasHover .signup-btn:hover {
     color: black;
     background-color: var(--primary);
     transition: 0.3s;
@@ -157,15 +220,31 @@
     overflow: hidden;
     background-color: rgba(0,0,0,0.5);
     border-radius: 0 15px 15px 0;
+    height: 100%;
     max-height: 100%;
 }
 
 .form-sidepanel img {
-    max-width: 150%;
-    max-height: auto;
+    height: 120%;
+    width: auto;
+    text-align: center;
     overflow: hidden;
-    object-fit: cover;
+    object-fit: contain;
     overflow: hidden;
+    position: relative;
+    scale: 1
+}
+
+@media only screen and (min-width: 1750px) {
+    .form-sidepanel img {
+        height: 200%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .form-sidepanel img {
+        height: 100%;
+    }
 }
 
 .profile-sidepanel {
@@ -195,6 +274,16 @@
     object-fit: cover;
 }
 
+@media only screen and (max-width: 1150px) {
+    .form-sidepanel {
+        display: none;
+    }
+
+    .profile-sidepanel {
+        display: none;
+    }
+}
+
 #id_image {
     display: none;
 }
@@ -209,7 +298,7 @@
     font-size: 1rem;
 }
 
-#upload-btn:hover {
+body.hasHover #upload-btn:hover {
     background-color: var(--info);
     border-color: var(--info);
 }
@@ -219,7 +308,7 @@
     color: var(--error);
 }
 
-#danger-btn:hover {
+body.hasHover #danger-btn:hover {
     background-color: var(--error);
     color: black;
 }
@@ -230,15 +319,7 @@
     text-decoration: none;
 }
 
-#info-btn:hover {
+body.hasHover #info-btn:hover {
     background-color: var(--info);
     color: black;
-}
-
-/* Individual Img Positioning */
-
-#side-img-login {
-    position: relative;
-    top: -80px;
-    left: -110px;
 }

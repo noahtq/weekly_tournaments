@@ -4,7 +4,7 @@
     <div class="home">
         <section class="banner">
             <div class="video-wrapper">
-                <video src="{% static 'events/videos/home_page_background_v002.mp4' %}" autoPlay muted loop>
+                <video src="{% static 'events/videos/background_video_002.mp4' %}" autoPlay muted loop playsinline>
                     Video could not load
                 </video>
                 <div class="overlay-text">
@@ -15,7 +15,7 @@
                     <div class="banner-secondary">
                         <h3>{{ event.title }}</h3>
                         <h3>{{ event.location }}</h3>
-                        <a class="btn home-btn" href="{% url 'event-detail' event.id %}" >Join Tournament</a>
+                        <a id="home-wide-btn" class="btn" href="{% url 'event-detail' event.id %}" >Join Tournament</a>
                     </div>
                 </div>
             </div>
