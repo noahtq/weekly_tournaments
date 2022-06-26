@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
     <div class="form-container form-container-event-register">
-        <div class="input-form">
+        <div class="input-form" id="event-register-input-form">
             <div class="event-register-info">
                 <div class="legend-container">
                     <legend>Register for {{ event.title }}</legend>
@@ -14,7 +14,9 @@
             </div>
             {% if is_filled == False %}
                 {% if registered == False %}
-                    <div id="paypal-button-container"></div>
+                    <div class="paypal-container">
+                        <div id="paypal-button-container"></div>
+                    </div>
 
                     <div class="status-icon">
                         <img id="checkmark" src="{% static 'events/icons/status/checkmark_001.png' %}" alt="">

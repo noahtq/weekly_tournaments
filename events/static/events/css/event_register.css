@@ -2,6 +2,12 @@
     margin-bottom: 4rem;
 }
 
+.paypal-container {
+    background-color: var(--primary);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
 .status-icon {
     display: flex;
     justify-content: center;
@@ -38,4 +44,10 @@
 
 #inline-link {
     font-size: 1rem;
+}
+
+#event-register-input-form {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
 }
