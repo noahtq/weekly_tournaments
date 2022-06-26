@@ -233,6 +233,10 @@ body.hasHover .btn:hover {
     border-color: var(--info);
 }
 
+.btn-info:visited {
+    color: var(--info);
+}
+
 body.hasHover .btn-info:hover {
     background-color: var(--info);
 }
