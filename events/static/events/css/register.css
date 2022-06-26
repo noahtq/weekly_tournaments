@@ -38,7 +38,8 @@
 }
 
 .form-container-event-register {
-    height: 40rem;
+    height: 90rem;
+    align-items: flex-start;
 }
 
 .form-container-teammates {
@@ -58,6 +59,12 @@
 
 }
 
+@media only screen and (max-width: 800px) {
+    .form-container-event-register {
+        height: 100rem;
+    }
+}
+
 @media only screen and (max-width: 650px) {
     .form-container-login {
         height: 35rem;
@@ -68,13 +75,19 @@
     }
 
     .form-container-event-register {
-        height: 45rem;
+        height: 95rem;
     }
 
     .form-container-teammates {
         height: 45rem;
     }
 
+}
+
+@media only screen and (max-width: 425px) {
+    .form-container-event-register {
+        height: 105rem;
+    }
 }
 
 .input-form {

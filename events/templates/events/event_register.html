@@ -2,19 +2,21 @@
 {% load static %}
 {% block content %}
     <div class="form-container form-container-event-register">
-        <div class="input-form">
+        <div class="input-form" id="event-register-input-form">
             <div class="event-register-info">
                 <div class="legend-container">
                     <legend>Register for {{ event.title }}</legend>
                 </div>
                 {% if adult_only %}
-                    <h3>This tournament is for participants 16+</h3>
+                    <h3>This tournament is recommended for participants 16+</h3>
                 {% endif %}
-                <p class="small center">To register for tournament, make the payment through paypal, navigate back to this page, and click the register button.</p>
+                <p class="small center">To register for the tournament, make the payment through paypal, navigate back to this page, and click the register button.</p>
             </div>
             {% if is_filled == False %}
                 {% if registered == False %}
-                    <div id="paypal-button-container"></div>
+                    <div class="paypal-container">
+                        <div id="paypal-button-container"></div>
+                    </div>
 
                     <div class="status-icon">
                         <img id="checkmark" src="{% static 'events/icons/status/checkmark_001.png' %}" alt="">
