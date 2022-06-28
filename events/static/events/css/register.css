@@ -46,6 +46,10 @@
     height: 55rem;
 }
 
+.form-container-bug-report {
+    height: 82rem;
+}
+
 #update-profile-container {
     height: 55rem;
     grid-template-areas: "input-form profile-sidepanel";

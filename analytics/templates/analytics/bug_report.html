@@ -1,0 +1,25 @@
+{% extends "events/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="form-container form-container-bug-report">
+        <div class="input-form">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Report Bug</legend>
+                    {{ form.as_p }}
+                </fieldset>
+                <div class="button-container">
+                    <button class="btn" type="submit">Submit</button>
+                </div>
+            </form>
+            <div class="text-muted">
+                <small><a href="{% url 'events-home' %}">Return to home page</a></small>
+            </div>
+        </div>
+        <div class="form-sidepanel">
+            <img id="side-img-login" src="{% static 'events/images/background/dunking_outside_002.jpg' %}" alt="">
+        </div>
+    </div>
+    <script src="{% static 'events/javascript/autofillBugUrl.js' %}" defaultUrl="{{ prev_url }}" defer></script>
+{% endblock content %}
