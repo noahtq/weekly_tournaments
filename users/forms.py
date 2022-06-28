@@ -1,4 +1,3 @@
-from enum import unique
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -32,9 +31,6 @@ class ProfileUpdateForm(forms.ModelForm):
 
 
 class UpdateTeammatesForm(forms.ModelForm):
-
-    
-
     favorite_teammates = forms.ModelMultipleChoiceField(
         queryset=User.objects.all(),
         widget=forms.CheckboxSelectMultiple,
