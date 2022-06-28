@@ -31,9 +31,6 @@ class ProfileUpdateForm(forms.ModelForm):
 
 
 class UpdateTeammatesForm(forms.ModelForm):
-
-    
-
     favorite_teammates = forms.ModelMultipleChoiceField(
         queryset=User.objects.all(),
         widget=forms.CheckboxSelectMultiple,
