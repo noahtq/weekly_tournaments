@@ -44,8 +44,14 @@ class BugReportFormTest(TestCase):
         form = BugReportForm(data={'bug_url': bug_url, 'occured': time_in_past})
         self.assertTrue(form.is_valid())
 
-    def testUrlBase(self):
+    def testWrongUrlBase(self):
         test_url = 'https://www.apple.com/iphone/'
         test_datetime = timezone.now() - timedelta(minutes=1)
         form = BugReportForm(data={'bug_url': test_url, 'occured': test_datetime})
         self.assertFalse(form.is_valid())
+
+    def testCorrectUrlBase(self):
+        test_url = f'https://{settings.ALLOWED_HOSTS[0]}.com/event/3/'
+        test_datetime = timezone.now() - timedelta(minutes=1)
+        form = BugReportForm(data={'bug_url': test_url, 'occured': test_datetime})
+        self.assertTrue(form.is_valid())
