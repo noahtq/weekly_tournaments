@@ -286,6 +286,10 @@ body.hasHover .btn-info:hover {
     height: 25rem;
 }
 
+.informational .image-omitted {
+    height: 10rem;
+}
+
 .informational .section-header div:before {
     content: "";
     margin-left: -100%;

@@ -29,8 +29,100 @@
                 </div>
             </div>
         </div>
-        <!-- Basketball Details -->
+        <!-- 2v2 Basketball Details -->
         {% if object.type == '1' %}
+            <!-- <section class="informational">
+
+                <div class="section-header">
+                    <span>Tournament</span>
+                    {% if object.price == '0' %}
+                        <h1>Pricing</h1>
+                        <div id="price-display-container">
+                            <div id="price-display-dummy"></div>
+                            <span id="price-display">${{ object.price }}</span>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="section-main-text">
+                    <div class="tag">
+                        <span>What's<br>Included</span>
+                    </div>
+                    <div class="list-container">
+                        <ul class="red-list">
+                            <li>At least two 2 vs. 2 games</li>
+                            <li>Up to 4-games if you make it to the championship</li>
+                            <li>Games are held in an indoor venue on a full-court basketball court</li>
+                            <li>Referees are provided for each game</li>
+                        </ul>
+                        <ul class="red-list">
+                            <li>Pinnies are provided</li>
+                            <li>Gatorade is provided</li>
+                            <li><a href="{% static 'events/images/products/tshirt/wt_tshirt_001.jpg' %}" target="_blank">Free Weekly Tournaments t-shirt</a></li>
+                            <li>Your stats are recorded and your highlights are uploaded to our <a href="https://www.youtube.com/channel/UCTEw5NSPbEAAXQUxBdYfyjw" target="_blank">YouTube channel</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section> -->
+            <section class="informational">
+                <div class="section-header image-omitted" id="tournament-info">
+                    <span>Tournament Info</span>
+                    <!-- <h1>Info</h1> -->
+                    {% if object.price == '0' %}
+                        <h1>Pricing</h1>
+                        <div id="price-display-container">
+                            <div id="price-display-dummy"></div>
+                            <span id="price-display">${{ object.price }}</span>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="section-main-text">
+                    <div class="tag">
+                        <span>Info</span>
+                    </div>
+                    <p>
+                        The event is a 2 on 2 half court tournament. Each team will get to play at least 2 games, as there is a 2-game regular season that determines who goes to the final four. The final four is single-elimination, so in total that's a max of four games.<br>
+                    </p>
+                </div>
+                <div class="section-main-text">
+                    <div class="tag">
+                        <span>Rules</span>
+                    </div>
+                    <div class="list-container">
+                        <ul class="red-list">
+                            <li>Scoring will be 2s and 3s to 35 points</li>
+                            <li>No make it take it</li>
+                            <li>Call your own fouls</li>
+                            <li>And-1s do count</li>
+                            <li>Half court and sidelines are out</li>
+                        </ul>
+                        <ul class="red-list">
+                            <li>Levels (must pass before dribbling or scoring)</li>
+                            <li>2-minute halftime</li>
+                            <li>Your stats are recorded and your highlights are uploaded to our <a href="https://www.youtube.com/channel/UCTEw5NSPbEAAXQUxBdYfyjw" target="_blank">YouTube channel</a></li>
+                            <li>Gatorade is provided</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section-main-text">
+                    <div class="tag">
+                        <span>Tie<br> Breaker<br>Rules</span>
+                    </div>
+                    <div class="list-and-text-container">
+                        <p class="underline">
+                            The tiebreaker rules in order:
+                        </p>
+                        <ul class="red-list">
+                            <li>The winner of any head to head matchups</li>
+                            <li>Higher point differential</li>
+                            <li>Total points scored</li>
+                            <li>Shoot for it</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+        <!-- 5v5 Basketball Details -->
+        {% if object.type == '2' %}
             <section class="informational">
                 <div class="section-header">
                     <span>Tournament</span>
