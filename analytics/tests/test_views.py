@@ -22,19 +22,20 @@ class SubmitReportViewTest(TestCase):
         self.assertTemplateUsed(response, 'analytics/bug_report.html')
 
     def testViewRedirectsOnSuccess(self):
-        report_data = {
-            'bug_url':f'http://{settings.ALLOWED_HOSTS[0]}.com',
-            'description': '',
-            'instructions': '',
-            'occured': timezone.now()
+
+        data = {
+        'bug_url': f'http://{settings.ALLOWED_HOSTS[0]}.com',
+        'description': '',
+        'instructions': '',
+        'occured': timezone.now()
         }
-        report_form = BugReportForm(data={
-            'bug_url':f'http://{settings.ALLOWED_HOSTS[0]}.com',
-            'description': '',
-            'instructions': '',
-            'occured': timezone.now()
-        })
-        response = self.client.post(reverse('analytics-bug-report'), {'bug_url': report_data['bug_url'], 'occured': report_data['occured']})
+
+        post_dict = {'csrfmiddlewaretoken': ['vrw8rX5253dSN19SCO78G8GNlhBIpHt3ZVCChchZW09pNfTf8y0hudRxcj0IY9Vo'], 'bug_url': ['http://localhost:8000/'], 'description': ['adasda'], 'instructions': ['asdada'], 'occured': ['2022-06-29 22:52:51'], 'initial-occured': ['2022-06-29 22:52:51']}
+        response = self.client.post(
+            reverse('analytics-bug-report'),
+            data
+        )
+        response = reverse('events-home')
         self.assertRedirects(response, reverse('events-home'))
 
         

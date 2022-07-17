@@ -5,6 +5,7 @@ from .forms import BugReportForm
 
 def submitReport(request):
     if request.method == 'POST':
+        print(request.POST)
         form = BugReportForm(request.POST)
         if form.is_valid():
             form.save()
