@@ -7,8 +7,9 @@ This is a fully functional website I made for a client a while back. The client 
 - HTML, JS, CSS Frontend
 - Deployed to a Linux Server with Linode and Apache
 ### Features
+- Responsive frontend. Website automatically resizes to fit and work well on any device/screen size/browser
 - User login/logout/registration
 - Custom staff-only frontend for client so they could setup and edit tournaments easily and quickly
 - Integration with PayPal so users can safely and securely pay for events
-- Ability for users to create their own team for each tournament. They can look up their teammates and send a request to their teammates to join the team.
+- Ability for users to create their own team for each tournament. They can look up their teammates and send a request to their teammates to join the team
 - Encrypted with HTTPS
